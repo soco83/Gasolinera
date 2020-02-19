@@ -36,7 +36,7 @@
     End Sub
 
 
-    Public Function getId() As Long
+    Public Function getId() As Integer
 
         Return id
 

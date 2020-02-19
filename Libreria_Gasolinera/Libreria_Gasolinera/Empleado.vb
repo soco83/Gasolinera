@@ -30,5 +30,110 @@
     End Sub
 
 
+    Public Function getId() As Integer
+
+        Return id
+
+    End Function
+
+
+    Public Sub setDni(ByVal dni As String)
+
+        Me.dni = dni
+
+    End Sub
+
+
+    Public Function getDni() As String
+
+        Return dni
+
+    End Function
+
+
+    Public Sub setNombre(ByVal nombre As String)
+
+        Me.nombre = nombre
+
+    End Sub
+
+
+    Public Function getNombre() As String
+
+        Return nombre
+
+    End Function
+
+
+    Public Sub setApellidos(ByVal apellidos As String)
+
+        Me.apellidos = apellidos
+
+    End Sub
+
+
+    Public Function getApellidos() As String
+
+        Return apellidos
+
+    End Function
+
+
+    Public Sub setRol(ByVal rol As String)
+
+        Me.rol = rol
+
+    End Sub
+
+
+    Public Function getRol() As String
+
+        Return rol
+
+    End Function
+
+
+    Public Sub setTelefono(ByVal telefono As String)
+
+        Me.telefono = telefono
+
+    End Sub
+
+
+    Public Function getTelefono() As String
+
+        Return telefono
+
+    End Function
+
+
+    Public Sub setEmail(ByVal email As String)
+
+        Me.email = email
+
+    End Sub
+
+
+    Public Function getEmail() As String
+
+        Return email
+
+    End Function
+
+
+    Public Sub setDireccion(ByVal direccion As String)
+
+        Me.direccion = direccion
+
+    End Sub
+
+
+    Public Function getDireccion() As String
+
+        Return direccion
+
+    End Function
+
+
 
 End Class
