@@ -116,13 +116,15 @@ Partial Class Inicio
         Me.BackColor = System.Drawing.Color.Gray
         Me.BackgroundImage = Global.Gasolinera_r.My.Resources.Resources.logo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(2112, 998)
+        Me.ClientSize = New System.Drawing.Size(1902, 1033)
         Me.Controls.Add(Me.pRegistro)
         Me.Controls.Add(Me.lContinuar)
         Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Inicio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "INICIO"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pRegistro.ResumeLayout(False)
         Me.pRegistro.PerformLayout()
         Me.ResumeLayout(False)

@@ -86,6 +86,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormularioCliente.Designer.vb">
+      <DependentUpon>FormularioCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gestion_db.vb" />
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
@@ -122,6 +128,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormularioCliente.resx">
+      <DependentUpon>FormularioCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
     </EmbeddedResource>
