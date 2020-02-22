@@ -92,17 +92,19 @@ Public Class gestion_db
         Static id As Integer = 0
         id += id
 
-        Dim ordenDb As String = "insert into empleados values (@id,@dni,@nombre,@apellido1,@apellido2,@telefono,@direccion,@rol)"
+        Dim ordenDb As String = "insert into empleados values (@id,@dni,@contraseña,@nombre,@apellido1,@apellido2,@telefono,@email,@direccion,@rol)"
         'se crea el comando ha utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
         comando.Parameters.AddWithValue("@id", id)
         comando.Parameters.AddWithValue("@dni", datos(0))
-        comando.Parameters.AddWithValue("@nombre", datos(1))
-        comando.Parameters.AddWithValue("@apellido1", datos(2))
-        comando.Parameters.AddWithValue("@apellido2", datos(3))
-        comando.Parameters.AddWithValue("@telefono", datos(4))
+        comando.Parameters.AddWithValue("@contraseña", datos(1))
+        comando.Parameters.AddWithValue("@nombre", datos(2))
+        comando.Parameters.AddWithValue("@apellido1", datos(3))
+        comando.Parameters.AddWithValue("@apellido2", datos(4))
+        comando.Parameters.AddWithValue("@telefono", datos(5))
+        comando.Parameters.AddWithValue("@email", datos(6))
         comando.Parameters.AddWithValue("@direccion", guardarDireccion(direccion))
         comando.Parameters.AddWithValue("@rol", rol)
 
@@ -131,16 +133,20 @@ Public Class gestion_db
         Static id As Integer = 0
         id += id
 
-        Dim ordenDb As String = "insert into proveedores values(@id,@nombre,@contacto)"
+        Dim ordenDb As String = "insert into proveedores values(@id,@nif,@nombre,@contacto,@direccion,@email)"
 
         'se crea el comando ha utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
+
         comando.Parameters.AddWithValue("@id", id)
-        comando.Parameters.AddWithValue("@nombre", datos(0))
+        comando.Parameters.AddWithValue("@nif", datos(0))
+        comando.Parameters.AddWithValue("@razon", datos(1))
+        comando.Parameters.AddWithValue("@nombre", datos(2))
         comando.Parameters.AddWithValue("@contacto", guardarContacto(contacto))
         comando.Parameters.AddWithValue("@direccion", guardarDireccion(direccion))
+        comando.Parameters.AddWithValue("@email", datos(3))
 
         'se abre la conexion
         con.Open()
@@ -157,6 +163,258 @@ Public Class gestion_db
     End Sub
 
 
+    '------------------------------------------------------------------------------------------------------------------------------
+    'Se crea el metodo para guardar clientes en la base de datos.
+    Public Sub guardarCliente(datos() As String)
+        'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
+        Static id As Integer = 0
+        id += id
+
+        Dim ordenDb As String = "insert into clientes values(@id,@dni,@nombre,@apellido1,@apellido2,@telefono,@fecha,@email)"
+
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'Se añaden los datos por el array que se pasa por parametro
+
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@dni", datos(0))
+        comando.Parameters.AddWithValue("@nombre", datos(1))
+        comando.Parameters.AddWithValue("@apellido1", datos(2))
+        comando.Parameters.AddWithValue("@apellido2", datos(3))
+        comando.Parameters.AddWithValue("@telefono", datos(4))
+        comando.Parameters.AddWithValue("@fecha", datos(5))
+        comando.Parameters.AddWithValue("email", datos(6))
+        'se abre la conexion
+        con.Open()
+
+        Try
+            'se ejecuta la query
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+        End Try
+
+        'se cierra la conexion
+        con.Close()
+
+    End Sub
+
+    '----------------------------------------------------------------------------------------------------------------
+
+    'en este apartado se realizaran  las modificaciones de la base de datos.
 
 
+    'Este metodo modifica la direccion se pasa por parametro los datos a modificar y el id del registro que se quiera modificar.
+    Public Function modificarDireccion(datos() As String, id As Integer) As Integer
+
+        'se crea la sentencia para modificar el registro
+        Dim ordenDb As String = "update direccion set  tipo=@tipo, nombre=@nombre, numero=@numero, piso=@piso, letra=@letra, cp=@cp, ciudad=@ciudad, provincia=@provincia where id_d=@id"
+        'se crea el comando a utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'se añaden los datos por el array que se pasa por parametro
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@tipo", datos(0))
+        comando.Parameters.AddWithValue("@nombre", datos(1))
+        comando.Parameters.AddWithValue("@numero", datos(2))
+        comando.Parameters.AddWithValue("@piso", datos(3))
+        comando.Parameters.AddWithValue("@letra", datos(4))
+        comando.Parameters.AddWithValue("@cp", datos(5))
+        comando.Parameters.AddWithValue("@ciudad", datos(6))
+        comando.Parameters.AddWithValue("@provincia", datos(7))
+
+        'se abre la conexion 
+        con.Open()
+        Try
+            'se ejecuta la query 
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+
+        End Try
+        'se cierra la conexion
+        con.Close()
+        'se retorna el id para poder pasarselo a las tablas que contengan la foreign key.
+        Return id
+
+    End Function
+
+
+    '-------------------------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para modificar los contactos de la base de datos
+    Private Function modificarContacto(datos() As String, id As Integer) As Integer
+
+
+
+        Dim ordenDb As String = "update contacto set nombre=@nombre, apellido1=@apellido1, apellido2=@apellido2, telefono=@telefono where id_c=@id"
+
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'se añaden los datos por el array que se pasa por parametro
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@nombre", datos(0))
+        comando.Parameters.AddWithValue("@apellido1", datos(1))
+        comando.Parameters.AddWithValue("@apellido2", datos(2))
+        comando.Parameters.AddWithValue("@telefono", datos(3))
+        'se abre la conexion 
+        con.Open()
+        Try
+            'se ejecuta la query 
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+
+        End Try
+        'se cierra la conexion
+        con.Close()
+        'se retorna el id para poder pasarselo a las tablas que contengan la foreign key.
+        Return id
+    End Function
+
+    '---------------------------------------------------------------------------------------------------------------------------------------------
+
+    'Se crea un metodo para modificar los empleados. se pasa por parametro los datos para la tabla, los id  y el rol. 
+    Public Sub modificarEmpleado(datos() As String, id As Integer, direccion() As String, id_d As Integer, rol As Integer)
+
+        Dim ordenDb As String = "update empleados set dni=@dni, contraseña=@contraseña, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido2, telefono=@telefono, email=@email, direccion=@direccion, rol=@rol where id_e=@id"
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'Se añaden los datos por el array que se pasa por parametro
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@dni", datos(0))
+        comando.Parameters.AddWithValue("@contraseña", datos(1))
+        comando.Parameters.AddWithValue("@nombre", datos(2))
+        comando.Parameters.AddWithValue("@apellido1", datos(3))
+        comando.Parameters.AddWithValue("@apellido2", datos(4))
+        comando.Parameters.AddWithValue("@telefono", datos(5))
+        comando.Parameters.AddWithValue("@email", datos(6))
+        comando.Parameters.AddWithValue("@direccion", modificarDireccion(direccion, id_d))
+        comando.Parameters.AddWithValue("@rol", rol)
+
+        'se abre la conexion
+        con.Open()
+
+        Try
+            'se ejecuta la query
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+        End Try
+
+        'se cierra la conexion
+        con.Close()
+
+
+    End Sub
+
+
+    '---------------------------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para modificar proveedores. se pasa por parametro los datos y los id.
+
+    Public Sub modificarProveedor(id As Integer, datos() As String, id_d As Integer, direccion() As String, id_c As Integer, contacto() As String)
+
+        'Se realiza la sentencia para modificar la tabla proveedores.
+
+        Dim ordenDb As String = "update proveedores set nif=@nif, nombre=@nombre, contacto=@contacto, direccion=@direccion, email=@email where id_p=id"
+
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'Se añaden los datos por el array que se pasa por parametro
+
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@nif", datos(0))
+        comando.Parameters.AddWithValue("@razon", datos(1))
+        comando.Parameters.AddWithValue("@nombre", datos(2))
+        comando.Parameters.AddWithValue("@contacto", modificarContacto(contacto, id_c))
+        comando.Parameters.AddWithValue("@direccion", modificarDireccion(direccion, id_d))
+        comando.Parameters.AddWithValue("@email", datos(3))
+
+        'se abre la conexion
+        con.Open()
+
+        Try
+            'se ejecuta la query
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+        End Try
+
+        'se cierra la conexion
+        con.Close()
+    End Sub
+
+    '---------------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para modificar clientes.  se pasa por parametros los datos y el id.
+    Public Sub modificarCliente(datos() As String, id As Integer)
+        'Se realiza la sentencia para modificar el cliente
+        Dim ordenDb As String = "update clientes set din=@dni, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido, telefono=@telefono, fecha=@fecha, email=@email where id_c=@id"
+
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'Se añaden los datos por el array que se pasa por parametro
+
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@dni", datos(0))
+        comando.Parameters.AddWithValue("@nombre", datos(1))
+        comando.Parameters.AddWithValue("@apellido1", datos(2))
+        comando.Parameters.AddWithValue("@apellido2", datos(3))
+        comando.Parameters.AddWithValue("@telefono", datos(4))
+        comando.Parameters.AddWithValue("@fecha", datos(5))
+        comando.Parameters.AddWithValue("email", datos(6))
+        'se abre la conexion
+        con.Open()
+
+        Try
+            'se ejecuta la query
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+        End Try
+
+        'se cierra la conexion
+        con.Close()
+
+    End Sub
+
+
+    '------------------------------------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para modificar los articulos. Se pasa por parametros los datos y el id
+    Public Sub modificarArticulo(datos() As String, id As Integer)
+        'se realiza la sentencia para poder modificar los datos
+        Dim ordenDb As String = "update articulos(nombre,stock,precio) set nombre=@nombre, stock=@stock, precio=@precio"
+
+        'se crea el comando ha utilizar para guardar el registro
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        'Se añaden los datos por el array que se pasa por parametro
+
+        comando.Parameters.AddWithValue("@id", id)
+        comando.Parameters.AddWithValue("@nombre", datos(0))
+        comando.Parameters.AddWithValue("@stock", datos(1))
+        comando.Parameters.AddWithValue("@precio", datos(2))
+
+        'se abre la conexion
+        con.Open()
+
+        Try
+            'se ejecuta la query
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(Err.Description)
+        End Try
+
+        'se cierra la conexion
+        con.Close()
+
+
+    End Sub
 End Class
