@@ -184,7 +184,7 @@ Public Class gestion_db
         comando.Parameters.AddWithValue("@apellido2", datos(3))
         comando.Parameters.AddWithValue("@telefono", datos(4))
         comando.Parameters.AddWithValue("@fecha", datos(5))
-        comando.Parameters.AddWithValue("email", datos(6))
+        comando.Parameters.AddWithValue("@email", datos(6))
         'se abre la conexion
         con.Open()
 
