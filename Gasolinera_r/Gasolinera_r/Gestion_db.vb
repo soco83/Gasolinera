@@ -21,7 +21,7 @@ Public Class gestion_db
         Static id As Integer = 0
         id += id
         Dim ordenDb As String = "insert into direccion values (@id,@tipo,@nombre,@numero,@piso,@letra,@cp,@ciudad,@provincia)"
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'se añaden los datos por el array que se pasa por parametro
@@ -60,7 +60,7 @@ Public Class gestion_db
 
         Dim ordenDb As String = "insert into contacto values (@id,@nombre,@apellido1,@apellido2,@telefono)"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'se añaden los datos por el array que se pasa por parametro
@@ -93,7 +93,7 @@ Public Class gestion_db
         id += id
 
         Dim ordenDb As String = "insert into empleados values (@id,@dni,@contraseña,@nombre,@apellido1,@apellido2,@telefono,@email,@direccion,@rol)"
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -135,7 +135,7 @@ Public Class gestion_db
 
         Dim ordenDb As String = "insert into proveedores values(@id,@nif,@nombre,@contacto,@direccion,@email)"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -172,7 +172,7 @@ Public Class gestion_db
 
         Dim ordenDb As String = "insert into clientes values(@id,@dni,@nombre,@apellido1,@apellido2,@telefono,@fecha,@email)"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -184,7 +184,7 @@ Public Class gestion_db
         comando.Parameters.AddWithValue("@apellido2", datos(3))
         comando.Parameters.AddWithValue("@telefono", datos(4))
         comando.Parameters.AddWithValue("@fecha", datos(5))
-        comando.Parameters.AddWithValue("email", datos(6))
+        comando.Parameters.AddWithValue("@email", datos(6))
         'se abre la conexion
         con.Open()
 
@@ -250,7 +250,7 @@ Public Class gestion_db
 
         Dim ordenDb As String = "update contacto set nombre=@nombre, apellido1=@apellido1, apellido2=@apellido2, telefono=@telefono where id_c=@id"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'se añaden los datos por el array que se pasa por parametro
@@ -280,7 +280,7 @@ Public Class gestion_db
     Public Sub modificarEmpleado(datos() As String, id As Integer, direccion() As String, id_d As Integer, rol As Integer)
 
         Dim ordenDb As String = "update empleados set dni=@dni, contraseña=@contraseña, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido2, telefono=@telefono, email=@email, direccion=@direccion, rol=@rol where id_e=@id"
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -322,7 +322,7 @@ Public Class gestion_db
 
         Dim ordenDb As String = "update proveedores set nif=@nif, nombre=@nombre, contacto=@contacto, direccion=@direccion, email=@email where id_p=id"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -356,7 +356,7 @@ Public Class gestion_db
         'Se realiza la sentencia para modificar el cliente
         Dim ordenDb As String = "update clientes set din=@dni, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido, telefono=@telefono, fecha=@fecha, email=@email where id_c=@id"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -392,7 +392,7 @@ Public Class gestion_db
         'se realiza la sentencia para poder modificar los datos
         Dim ordenDb As String = "update articulos(nombre,stock,precio) set nombre=@nombre, stock=@stock, precio=@precio"
 
-        'se crea el comando ha utilizar para guardar el registro
+        'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
 
         'Se añaden los datos por el array que se pasa por parametro
@@ -417,4 +417,128 @@ Public Class gestion_db
 
 
     End Sub
+
+    '------------------------------------------------------------------------------------------------------------------------------
+
+    'Se crean los métodos de para eliminar registros.
+
+    'Se crea el metodo para eliminar la direccion. se pasa por parametro el id del registro.
+    Private Sub eliminarDireccion(id As Integer)
+        'Se realiza la sentencia apra eliminar un registro.
+        Dim ordenDb As String = "delete from direccion where id_d=@id"
+
+        'Se crea el comando a utilizar
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        comando.Parameters.AddWithValue("@id", id)
+
+
+        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
+
+        If res = 6 Then
+            con.Open()
+            comando.ExecuteNonQuery()
+            con.Close()
+        End If
+    End Sub
+
+    'Se crea el metodo para eliminar un registro de contacto. Se pasa por parametro el id dle registro.
+    Private Sub eliminarContacto(id As Integer)
+        'Se realiza la sentencia para eliminar un registro.
+        Dim ordenDb As String = "delete from contacto where id_c=@id"
+
+
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        comando.Parameters.AddWithValue("@id", id)
+
+
+        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
+
+        If res = 6 Then
+            con.Open()
+            comando.ExecuteNonQuery()
+            con.Close()
+        End If
+    End Sub
+
+
+    '--------------------------------------------------------------------------------------------------------------------------
+    'Se crea el metodo para para eliminar empleados. Se pasa por parametro los id.
+
+    Public Sub eliminarEmpleado(id As Integer, id_d As Integer)
+        'Se elimina primero la direccion del empleado.
+        eliminarDireccion(id_d)
+
+        'se realiza la sentencia para eliminar un registro.
+        Dim ordenDb As String = "delete from empleados where id=@id"
+
+        'Se crean el comando para borrar el registro de empleados.
+
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        comando.Parameters.AddWithValue("@id", id)
+
+
+        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
+
+        If res = 6 Then
+            con.Open()
+            comando.ExecuteNonQuery()
+            con.Close()
+        End If
+
+    End Sub
+
+    '------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para borrar clientes. Se pasa por parametro los id.
+    Public Sub eliminarProveedores(id As Integer, id_d As Integer, id_c As Integer)
+        'se elimina primero el contacto y la direccion.
+        eliminarDireccion(id_d)
+        eliminarContacto(id_c)
+
+        'Se realiza la sentencia para eliminar el registro
+        Dim ordenDb As String = "delete from proveedores where id=@id"
+
+        'Se crean el comando para borrar el registro de empleados.
+
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        comando.Parameters.AddWithValue("@id", id)
+
+
+        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
+
+        If res = 6 Then
+            con.Open()
+            comando.ExecuteNonQuery()
+            con.Close()
+        End If
+    End Sub
+
+    '-----------------------------------------------------------------------------------------------------------------
+
+    'Se crea el metodo para borrar clientes. Se pasa por parametro el id
+
+    Public Sub eliminarCliente(id As Integer)
+        'Se realiza la sentencia para eliminar el registro
+        Dim ordenDb As String = "delete from clientes where id=@id"
+
+        'Se crean el comando para borrar el registro de empleados.
+
+        Dim comando As New SqlCommand(ordenDb, con)
+
+        comando.Parameters.AddWithValue("@id", id)
+
+
+        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
+
+        If res = 6 Then
+            con.Open()
+            comando.ExecuteNonQuery()
+            con.Close()
+        End If
+    End Sub
+
 End Class
