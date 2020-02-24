@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class gestion_db
+Public Class Gestion_db
     'En esta clase se realiza todo los necesario para gestionar los datos de la base de datos.
 
 

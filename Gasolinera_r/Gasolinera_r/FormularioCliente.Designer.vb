@@ -58,12 +58,25 @@ Partial Class FormularioCliente
         Me.FechaDeAltaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Repsol_dbDataSet1 = New Gasolinera_r.repsol_dbDataSet1()
+        Me.Repsol_dbDataSet = New Gasolinera_r.repsol_dbDataSet1()
         Me.ClientesTableAdapter = New Gasolinera_r.repsol_dbDataSet1TableAdapters.clientesTableAdapter()
         Me.lTItulo = New System.Windows.Forms.Label()
+        Me.epNombre = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epApellido1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epApellido2 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epTelefono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epEmail = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epDni = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.bLimpiar = New System.Windows.Forms.Button()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Repsol_dbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Repsol_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epNombre, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epApellido1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epEmail, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epDni, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lId
@@ -126,7 +139,7 @@ Partial Class FormularioCliente
         Me.tbId.Enabled = False
         Me.tbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbId.Location = New System.Drawing.Point(176, 274)
-        Me.tbId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbId.Margin = New System.Windows.Forms.Padding(4)
         Me.tbId.Name = "tbId"
         Me.tbId.Size = New System.Drawing.Size(84, 37)
         Me.tbId.TabIndex = 5
@@ -136,7 +149,8 @@ Partial Class FormularioCliente
         Me.tbDni.Enabled = False
         Me.tbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDni.Location = New System.Drawing.Point(423, 274)
-        Me.tbDni.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbDni.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbDni.MaxLength = 9
         Me.tbDni.Name = "tbDni"
         Me.tbDni.Size = New System.Drawing.Size(245, 37)
         Me.tbDni.TabIndex = 6
@@ -146,7 +160,8 @@ Partial Class FormularioCliente
         Me.tbNombre.Enabled = False
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNombre.Location = New System.Drawing.Point(888, 274)
-        Me.tbNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbNombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbNombre.MaxLength = 15
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(245, 37)
         Me.tbNombre.TabIndex = 7
@@ -156,7 +171,8 @@ Partial Class FormularioCliente
         Me.tbApellido1.Enabled = False
         Me.tbApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbApellido1.Location = New System.Drawing.Point(315, 352)
-        Me.tbApellido1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbApellido1.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbApellido1.MaxLength = 20
         Me.tbApellido1.Name = "tbApellido1"
         Me.tbApellido1.Size = New System.Drawing.Size(271, 37)
         Me.tbApellido1.TabIndex = 8
@@ -165,8 +181,9 @@ Partial Class FormularioCliente
         '
         Me.tbApellido2.Enabled = False
         Me.tbApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido2.Location = New System.Drawing.Point(863, 352)
-        Me.tbApellido2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbApellido2.Location = New System.Drawing.Point(862, 351)
+        Me.tbApellido2.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbApellido2.MaxLength = 20
         Me.tbApellido2.Name = "tbApellido2"
         Me.tbApellido2.Size = New System.Drawing.Size(271, 37)
         Me.tbApellido2.TabIndex = 10
@@ -187,7 +204,8 @@ Partial Class FormularioCliente
         Me.tbTelefono.Enabled = False
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTelefono.Location = New System.Drawing.Point(315, 439)
-        Me.tbTelefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbTelefono.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbTelefono.MaxLength = 9
         Me.tbTelefono.Name = "tbTelefono"
         Me.tbTelefono.Size = New System.Drawing.Size(271, 37)
         Me.tbTelefono.TabIndex = 11
@@ -208,7 +226,8 @@ Partial Class FormularioCliente
         Me.tbEmail.Enabled = False
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbEmail.Location = New System.Drawing.Point(740, 439)
-        Me.tbEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbEmail.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbEmail.MaxLength = 40
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.Size = New System.Drawing.Size(393, 37)
         Me.tbEmail.TabIndex = 13
@@ -218,7 +237,7 @@ Partial Class FormularioCliente
         Me.tbFecha.Enabled = False
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.Location = New System.Drawing.Point(384, 523)
-        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.tbFecha.Name = "tbFecha"
         Me.tbFecha.Size = New System.Drawing.Size(271, 37)
         Me.tbFecha.TabIndex = 14
@@ -236,8 +255,9 @@ Partial Class FormularioCliente
         '
         'bNuevo
         '
+        Me.bNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bNuevo.Location = New System.Drawing.Point(108, 143)
-        Me.bNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.bNuevo.Name = "bNuevo"
         Me.bNuevo.Size = New System.Drawing.Size(244, 87)
         Me.bNuevo.TabIndex = 16
@@ -247,8 +267,9 @@ Partial Class FormularioCliente
         '
         'bModificar
         '
-        Me.bModificar.Location = New System.Drawing.Point(423, 143)
-        Me.bModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bModificar.Location = New System.Drawing.Point(423, 144)
+        Me.bModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.bModificar.Name = "bModificar"
         Me.bModificar.Size = New System.Drawing.Size(244, 87)
         Me.bModificar.TabIndex = 17
@@ -258,8 +279,9 @@ Partial Class FormularioCliente
         '
         'bBuscar
         '
+        Me.bBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bBuscar.Location = New System.Drawing.Point(737, 143)
-        Me.bBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.bBuscar.Name = "bBuscar"
         Me.bBuscar.Size = New System.Drawing.Size(244, 87)
         Me.bBuscar.TabIndex = 18
@@ -269,8 +291,9 @@ Partial Class FormularioCliente
         '
         'bBorrar
         '
+        Me.bBorrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bBorrar.Location = New System.Drawing.Point(1073, 143)
-        Me.bBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.bBorrar.Name = "bBorrar"
         Me.bBorrar.Size = New System.Drawing.Size(244, 87)
         Me.bBorrar.TabIndex = 19
@@ -280,8 +303,9 @@ Partial Class FormularioCliente
         '
         'bIforme
         '
+        Me.bIforme.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bIforme.Location = New System.Drawing.Point(1375, 143)
-        Me.bIforme.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bIforme.Margin = New System.Windows.Forms.Padding(4)
         Me.bIforme.Name = "bIforme"
         Me.bIforme.Size = New System.Drawing.Size(244, 87)
         Me.bIforme.TabIndex = 20
@@ -291,7 +315,7 @@ Partial Class FormularioCliente
         'bCarnet
         '
         Me.bCarnet.Location = New System.Drawing.Point(1676, 143)
-        Me.bCarnet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bCarnet.Margin = New System.Windows.Forms.Padding(4)
         Me.bCarnet.Name = "bCarnet"
         Me.bCarnet.Size = New System.Drawing.Size(244, 87)
         Me.bCarnet.TabIndex = 21
@@ -300,8 +324,10 @@ Partial Class FormularioCliente
         '
         'bAceptar
         '
+        Me.bAceptar.Enabled = False
+        Me.bAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bAceptar.Location = New System.Drawing.Point(1195, 309)
-        Me.bAceptar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bAceptar.Margin = New System.Windows.Forms.Padding(4)
         Me.bAceptar.Name = "bAceptar"
         Me.bAceptar.Size = New System.Drawing.Size(268, 52)
         Me.bAceptar.TabIndex = 22
@@ -311,8 +337,9 @@ Partial Class FormularioCliente
         '
         'bCancelar
         '
+        Me.bCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bCancelar.Location = New System.Drawing.Point(1195, 389)
-        Me.bCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.bCancelar.Name = "bCancelar"
         Me.bCancelar.Size = New System.Drawing.Size(268, 49)
         Me.bCancelar.TabIndex = 23
@@ -323,7 +350,7 @@ Partial Class FormularioCliente
         'bVolver
         '
         Me.bVolver.Location = New System.Drawing.Point(1748, 897)
-        Me.bVolver.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.bVolver.Margin = New System.Windows.Forms.Padding(4)
         Me.bVolver.Name = "bVolver"
         Me.bVolver.Size = New System.Drawing.Size(268, 49)
         Me.bVolver.TabIndex = 24
@@ -337,7 +364,7 @@ Partial Class FormularioCliente
         Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdcDataGridViewTextBoxColumn, Me.DniDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.Apellido1DataGridViewTextBoxColumn, Me.Apellido2DataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.FechaDeAltaDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn})
         Me.dgvClientes.DataSource = Me.ClientesBindingSource
         Me.dgvClientes.Location = New System.Drawing.Point(360, 629)
-        Me.dgvClientes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvClientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.RowHeadersWidth = 51
         Me.dgvClientes.Size = New System.Drawing.Size(1159, 304)
@@ -410,12 +437,12 @@ Partial Class FormularioCliente
         'ClientesBindingSource
         '
         Me.ClientesBindingSource.DataMember = "clientes"
-        Me.ClientesBindingSource.DataSource = Me.Repsol_dbDataSet1
+        Me.ClientesBindingSource.DataSource = Me.Repsol_dbDataSet
         '
-        'Repsol_dbDataSet1
+        'Repsol_dbDataSet
         '
-        Me.Repsol_dbDataSet1.DataSetName = "repsol_dbDataSet1"
-        Me.Repsol_dbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Repsol_dbDataSet.DataSetName = "repsol_dbDataSet"
+        Me.Repsol_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ClientesTableAdapter
         '
@@ -431,12 +458,47 @@ Partial Class FormularioCliente
         Me.lTItulo.TabIndex = 26
         Me.lTItulo.Text = "GESTIÓN CLIENTES"
         '
+        'epNombre
+        '
+        Me.epNombre.ContainerControl = Me
+        '
+        'epApellido1
+        '
+        Me.epApellido1.ContainerControl = Me
+        '
+        'epApellido2
+        '
+        Me.epApellido2.ContainerControl = Me
+        '
+        'epTelefono
+        '
+        Me.epTelefono.ContainerControl = Me
+        '
+        'epEmail
+        '
+        Me.epEmail.ContainerControl = Me
+        '
+        'epDni
+        '
+        Me.epDni.ContainerControl = Me
+        '
+        'bLimpiar
+        '
+        Me.bLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bLimpiar.Location = New System.Drawing.Point(907, 523)
+        Me.bLimpiar.Name = "bLimpiar"
+        Me.bLimpiar.Size = New System.Drawing.Size(226, 69)
+        Me.bLimpiar.TabIndex = 27
+        Me.bLimpiar.Text = "LIMPIAR CAMPOS"
+        Me.bLimpiar.UseVisualStyleBackColor = True
+        '
         'FormularioCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.ClientSize = New System.Drawing.Size(1924, 961)
+        Me.Controls.Add(Me.bLimpiar)
         Me.Controls.Add(Me.lTItulo)
         Me.Controls.Add(Me.dgvClientes)
         Me.Controls.Add(Me.bVolver)
@@ -471,7 +533,13 @@ Partial Class FormularioCliente
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Repsol_dbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Repsol_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epNombre, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epApellido1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epEmail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epDni, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -503,7 +571,7 @@ Partial Class FormularioCliente
     Friend WithEvents bCancelar As Button
     Friend WithEvents bVolver As Button
     Friend WithEvents dgvClientes As DataGridView
-    Friend WithEvents Repsol_dbDataSet1 As repsol_dbDataSet1
+    Friend WithEvents Repsol_dbDataSet As repsol_dbDataSet1
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents ClientesTableAdapter As repsol_dbDataSet1TableAdapters.clientesTableAdapter
     Friend WithEvents IdcDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -515,4 +583,11 @@ Partial Class FormularioCliente
     Friend WithEvents FechaDeAltaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents lTItulo As Label
+    Friend WithEvents epNombre As ErrorProvider
+    Friend WithEvents epApellido1 As ErrorProvider
+    Friend WithEvents epApellido2 As ErrorProvider
+    Friend WithEvents epTelefono As ErrorProvider
+    Friend WithEvents epEmail As ErrorProvider
+    Friend WithEvents epDni As ErrorProvider
+    Friend WithEvents bLimpiar As Button
 End Class
