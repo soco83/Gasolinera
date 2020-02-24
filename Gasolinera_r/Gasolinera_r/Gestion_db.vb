@@ -162,6 +162,14 @@ Public Class Gestion_db
         con.Close()
     End Sub
 
+    Public Function calcularID() As Integer
+
+        Dim id As Integer
+        Dim ordenDb As String = "Select count(*) from clientes"
+
+
+    End Function
+
 
     '------------------------------------------------------------------------------------------------------------------------------
     'Se crea el metodo para guardar clientes en la base de datos.
