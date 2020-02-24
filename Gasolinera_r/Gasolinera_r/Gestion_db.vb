@@ -7,8 +7,12 @@ Public Class gestion_db
 
 
     'Se crea la conexion con la base de datos.
-    Public con As New SqlConnection("server=localhost\SQLExpress ; database=repsol_db ; Integrated Security = True")
+    Public con As New SqlConnection()
 
+    Sub New(con As SqlConnection)
+        Me.con = con
+
+    End Sub
     'se crea el dataset para guardar en memoria las busquedas de las querys.
 
     Public dataSet As New DataSet
