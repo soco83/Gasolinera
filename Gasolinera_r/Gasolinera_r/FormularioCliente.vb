@@ -46,7 +46,22 @@ Public Class FormularioCliente
 
     End Sub
 
+    'este es el evento de pulsar el boton de modificar.
+    Private Sub bModificar_Click(sender As Object, e As EventArgs) Handles bModificar.Click
+        botonPulsado = bModificar.Tag
 
+        tbDni.Enabled = True
+        tbNombre.Enabled = True
+        tbApellido1.Enabled = True
+        tbApellido2.Enabled = True
+        tbTelefono.Enabled = True
+        tbEmail.Enabled = True
+
+        bAceptar.Visible = True
+        bCancelar.Visible = True
+
+        sacarDatos()
+    End Sub
     'Evento del botón bAceptar. Según que tipo de operación se haya pulsado antes llamará a un método
     'o a otro usando la variable de control botonPulsado
     Private Sub bAceptar_Click(sender As Object, e As EventArgs) Handles bAceptar.Click
@@ -69,20 +84,39 @@ Public Class FormularioCliente
                     'Se guarda el nuevo cliente en la base de datos
                     Try
                         gestionDB.guardarCliente(datos)
-                        'Repsol_dbDataSet.Clear()
-                        'ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
+
                         MsgBox("Cliente creado satisfactoriamente")
                     Catch ex As Exception
                         MsgBox(Err.Description, MsgBoxStyle.Information, "Error al guardar")
                     End Try
 
-
+                    cargarDatos()
+                    limpiarCampos()
+                    bAceptar.Visible = False
+                    bCancelar.Visible = False
 
                 End If
 
             'En el caso de que se haya pulsado el botón de modificar un cliente
             Case bModificar.Tag
+                If (epDni.GetError(tbDni).Count = 0 And epNombre.GetError(tbNombre).Count = 0 And epApellido1.GetError(tbApellido1).Count = 0 And epApellido2.GetError(tbApellido2).Count = 0 And epTelefono.GetError(tbTelefono).Count = 0 And epEmail.GetError(tbEmail).Count = 0) Then
+                    Dim datos(5) As String
+                    datos(0) = tbDni.Text
+                    datos(0) = tbNombre.Text
+                    datos(1) = tbApellido1.Text
+                    datos(2) = tbApellido2.Text
+                    datos(3) = tbTelefono.Text
+                    datos(4) = Now.ToShortDateString
+                    datos(5) = tbEmail.Text
 
+                    'Se modifica el cliente en la base de datos.
+
+                    gestionDB.modificarCliente(datos, tbId.Text)
+                    cargarDatos()
+                    limpiarCampos()
+                    bAceptar.Visible = False
+                    bCancelar.Visible = False
+                End If
             'En el caso de que se haya pulsado el botón de buscar un cliente
             Case bBuscar.Tag
 
@@ -231,6 +265,17 @@ Public Class FormularioCliente
 
     End Sub
 
+    'Se crea el metodo para pasar los datos seleccionados del datagridview a los campos.
+    Public Sub sacarDatos()
+        tbId.Text = dgvClientes.CurrentRow.Cells.Item(0).Value
+        tbDni.Text = dgvClientes.CurrentRow.Cells.Item(1).Value
+        tbNombre.Text = dgvClientes.CurrentRow.Cells.Item(2).Value
+        tbApellido1.Text = dgvClientes.CurrentRow.Cells.Item(3).Value
+        tbApellido2.Text = dgvClientes.CurrentRow.Cells.Item(4).Value
+        tbTelefono.Text = dgvClientes.CurrentRow.Cells.Item(5).Value
+        tbEmail.Text = dgvClientes.CurrentRow.Cells.Item(7).Value
+        tbFecha.Text = dgvClientes.CurrentRow.Cells.Item(6).Value
+    End Sub
 
     'Método que limpia todos los TextBox del formulario
     Public Sub limpiarCampos()
@@ -257,4 +302,6 @@ Public Class FormularioCliente
         dgvClientes.DataSource = dataSet
         dgvClientes.DataMember = "clientes"
     End Sub
+
+
 End Class
