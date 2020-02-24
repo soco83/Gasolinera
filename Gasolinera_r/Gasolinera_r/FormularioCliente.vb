@@ -1,9 +1,16 @@
-﻿Imports Librera_validaciones
+﻿Imports System.Data.SqlClient
+Imports Librera_validaciones
 
 Public Class FormularioCliente
-
+    Dim con As New SqlConnection("server=localhost\SQLExpress ; database=repsol_db ; Integrated Security = true")
     Dim valida As New Validaciones
-    Dim gestionDB As New Gestion_db
+    Dim gestionDB As New Gestion_db(con)
+
+    'Se crea un adaptador para el dataset.
+    Dim adapter As New SqlDataAdapter("select * from clientes", con)
+
+    'Se crea el dataset para  poder guardar todo lo necesario de la base de datos. 
+    Dim dataSet As New DataSet
 
     'Variable que almacena el tag del botón del formulario que ha sido pulsado(Crear, Modificar, Buscar y Borrar)
     'para saber a que método se debe llamar cuando se pulse el botón aceptar
@@ -12,7 +19,12 @@ Public Class FormularioCliente
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Repsol_dbDataSet1.clientes' Puede moverla o quitarla según sea necesario.
-        ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
+        'ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
+
+
+        'se llama al metodo cargarDatos
+        cargarDatos()
+
 
     End Sub
 
@@ -57,11 +69,11 @@ Public Class FormularioCliente
                     'Se guarda el nuevo cliente en la base de datos
                     Try
                         gestionDB.guardarCliente(datos)
-                        Repsol_dbDataSet.Clear()
-                        ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
+                        'Repsol_dbDataSet.Clear()
+                        'ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
                         MsgBox("Cliente creado satisfactoriamente")
                     Catch ex As Exception
-                        MsgBox("Ha habido algún problema al guardar el nuevo cliente.", MsgBoxStyle.Information, "Error al guardar")
+                        MsgBox(Err.Description, MsgBoxStyle.Information, "Error al guardar")
                     End Try
 
 
@@ -234,6 +246,15 @@ Public Class FormularioCliente
 
     End Sub
 
+    'Metodo para recargar la tabla cada vez que se haga algún tipo de modificiacion en la misma.
+    Public Sub cargarDatos()
 
+        'otra forma a ver si asi no hay problemas.
+        'con el adapter se llena el dataset.
+        adapter.Fill(dataSet, "clientes")
 
+        'despues se añade los datos al datagridview.
+        dgvClientes.DataSource = dataSet
+        dgvClientes.DataMember = "clientes"
+    End Sub
 End Class
