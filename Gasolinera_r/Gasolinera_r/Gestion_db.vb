@@ -22,8 +22,17 @@ Public Class Gestion_db
 
     Public Function guardarDireccion(datos() As String) As Integer
         'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
-        Static id As Integer = 0
-        id += id
+        Dim id As Integer
+        Dim comandoId As New SqlCommand("select count(*) from empleados", con)
+
+
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
+
+
         Dim ordenDb As String = "insert into direccion values (@id,@tipo,@nombre,@numero,@piso,@letra,@cp,@ciudad,@provincia)"
         'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
@@ -39,8 +48,7 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@ciudad", datos(6))
         comando.Parameters.AddWithValue("@provincia", datos(7))
 
-        'se abre la conexion 
-        con.Open()
+
         Try
             'se ejecuta la query 
             comando.ExecuteNonQuery()
@@ -59,8 +67,15 @@ Public Class Gestion_db
     'se crea el metodo para registrar un contacto de los proveedores.
     Private Function guardarContacto(datos() As String) As Integer
         'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
-        Static id As Integer = 0
-        id += id
+        Dim id As Integer
+        Dim comandoId As New SqlCommand("select count(*) from empleados", con)
+
+
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
 
         Dim ordenDb As String = "insert into contacto values (@id,@nombre,@apellido1,@apellido2,@telefono)"
 
@@ -73,8 +88,7 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@apellido1", datos(1))
         comando.Parameters.AddWithValue("@apellido2", datos(2))
         comando.Parameters.AddWithValue("@telefono", datos(3))
-        'se abre la conexion 
-        con.Open()
+
         Try
             'se ejecuta la query 
             comando.ExecuteNonQuery()
@@ -93,8 +107,15 @@ Public Class Gestion_db
     'se crea el metodo para registrar un empleado. Se pasa por parametro los datos basicos del empleado, los datos de la direccion, y el indice del combobox para el rol.
     Public Sub guardarEmpleado(datos() As String, direccion() As String, rol As Integer)
         'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
-        Static id As Integer = 0
-        id += id
+        Dim id As Integer
+        Dim comandoId As New SqlCommand("select count(*) from empleados", con)
+
+
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
 
         Dim ordenDb As String = "insert into empleados values (@id,@dni,@contraseña,@nombre,@apellido1,@apellido2,@telefono,@email,@direccion,@rol)"
         'se crea el comando a utilizar para guardar el registro
@@ -112,8 +133,6 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@direccion", guardarDireccion(direccion))
         comando.Parameters.AddWithValue("@rol", rol)
 
-        'se abre la conexion
-        con.Open()
 
         Try
             'se ejecuta la query
@@ -134,8 +153,15 @@ Public Class Gestion_db
     Public Sub guardarProveedor(datos() As String, direccion() As String, contacto() As String)
 
         'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
-        Static id As Integer = 0
-        id += id
+        Dim id As Integer
+        Dim comandoId As New SqlCommand("select count(*) from proveedores", con)
+
+
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
 
         Dim ordenDb As String = "insert into proveedores values(@id,@nif,@nombre,@contacto,@direccion,@email)"
 
@@ -152,8 +178,8 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@direccion", guardarDireccion(direccion))
         comando.Parameters.AddWithValue("@email", datos(3))
 
-        'se abre la conexion
-        con.Open()
+
+
 
         Try
             'se ejecuta la query
@@ -171,8 +197,15 @@ Public Class Gestion_db
     'Se crea el metodo para guardar clientes en la base de datos.
     Public Sub guardarCliente(datos() As String)
         'se crea la variable estatica para el id y se le suma 1 antes de realizar el registro
-        Static id As Integer = 0
-        id += id
+        Dim id As Integer
+        Dim comandoId As New SqlCommand("select count(*) from clientes", con)
+
+
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
 
         Dim ordenDb As String = "insert into clientes values(@id,@dni,@nombre,@apellido1,@apellido2,@telefono,@fecha,@email)"
 
@@ -189,8 +222,8 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@telefono", datos(4))
         comando.Parameters.AddWithValue("@fecha", datos(5))
         comando.Parameters.AddWithValue("@email", datos(6))
-        'se abre la conexion
-        con.Open()
+
+
 
         Try
             'se ejecuta la query
