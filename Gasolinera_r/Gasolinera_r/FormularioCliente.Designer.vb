@@ -83,9 +83,11 @@ Partial Class FormularioCliente
         '
         Me.lId.AutoSize = True
         Me.lId.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lId.Location = New System.Drawing.Point(84, 223)
+        Me.lId.ForeColor = System.Drawing.SystemColors.Control
+        Me.lId.Location = New System.Drawing.Point(112, 274)
+        Me.lId.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lId.Name = "lId"
-        Me.lId.Size = New System.Drawing.Size(42, 29)
+        Me.lId.Size = New System.Drawing.Size(52, 36)
         Me.lId.TabIndex = 0
         Me.lId.Text = "ID:"
         '
@@ -93,9 +95,11 @@ Partial Class FormularioCliente
         '
         Me.lDni.AutoSize = True
         Me.lDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lDni.Location = New System.Drawing.Point(251, 223)
+        Me.lDni.ForeColor = System.Drawing.SystemColors.Control
+        Me.lDni.Location = New System.Drawing.Point(335, 274)
+        Me.lDni.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lDni.Name = "lDni"
-        Me.lDni.Size = New System.Drawing.Size(60, 29)
+        Me.lDni.Size = New System.Drawing.Size(74, 36)
         Me.lDni.TabIndex = 1
         Me.lDni.Text = "DNI:"
         '
@@ -103,9 +107,11 @@ Partial Class FormularioCliente
         '
         Me.lTelefono.AutoSize = True
         Me.lTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lTelefono.Location = New System.Drawing.Point(79, 357)
+        Me.lTelefono.ForeColor = System.Drawing.SystemColors.Control
+        Me.lTelefono.Location = New System.Drawing.Point(105, 439)
+        Me.lTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lTelefono.Name = "lTelefono"
-        Me.lTelefono.Size = New System.Drawing.Size(151, 29)
+        Me.lTelefono.Size = New System.Drawing.Size(182, 36)
         Me.lTelefono.TabIndex = 2
         Me.lTelefono.Text = "TELÉFONO:"
         '
@@ -113,9 +119,11 @@ Partial Class FormularioCliente
         '
         Me.lApellido1.AutoSize = True
         Me.lApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lApellido1.Location = New System.Drawing.Point(79, 286)
+        Me.lApellido1.ForeColor = System.Drawing.SystemColors.Control
+        Me.lApellido1.Location = New System.Drawing.Point(105, 352)
+        Me.lApellido1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lApellido1.Name = "lApellido1"
-        Me.lApellido1.Size = New System.Drawing.Size(153, 29)
+        Me.lApellido1.Size = New System.Drawing.Size(194, 36)
         Me.lApellido1.TabIndex = 3
         Me.lApellido1.Text = "APELLIDO 1:"
         '
@@ -123,9 +131,11 @@ Partial Class FormularioCliente
         '
         Me.lNombre.AutoSize = True
         Me.lNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lNombre.Location = New System.Drawing.Point(535, 223)
+        Me.lNombre.ForeColor = System.Drawing.SystemColors.Control
+        Me.lNombre.Location = New System.Drawing.Point(713, 274)
+        Me.lNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lNombre.Name = "lNombre"
-        Me.lNombre.Size = New System.Drawing.Size(125, 29)
+        Me.lNombre.Size = New System.Drawing.Size(154, 36)
         Me.lNombre.TabIndex = 4
         Me.lNombre.Text = "NOMBRE:"
         '
@@ -133,58 +143,65 @@ Partial Class FormularioCliente
         '
         Me.tbId.Enabled = False
         Me.tbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbId.Location = New System.Drawing.Point(132, 223)
+        Me.tbId.Location = New System.Drawing.Point(176, 274)
+        Me.tbId.Margin = New System.Windows.Forms.Padding(4)
         Me.tbId.Name = "tbId"
-        Me.tbId.Size = New System.Drawing.Size(64, 31)
+        Me.tbId.Size = New System.Drawing.Size(84, 37)
         Me.tbId.TabIndex = 5
         '
         'tbDni
         '
         Me.tbDni.Enabled = False
         Me.tbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDni.Location = New System.Drawing.Point(317, 223)
+        Me.tbDni.Location = New System.Drawing.Point(423, 274)
+        Me.tbDni.Margin = New System.Windows.Forms.Padding(4)
         Me.tbDni.MaxLength = 9
         Me.tbDni.Name = "tbDni"
-        Me.tbDni.Size = New System.Drawing.Size(185, 31)
+        Me.tbDni.Size = New System.Drawing.Size(245, 37)
         Me.tbDni.TabIndex = 6
         '
         'tbNombre
         '
         Me.tbNombre.Enabled = False
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(666, 223)
+        Me.tbNombre.Location = New System.Drawing.Point(888, 274)
+        Me.tbNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.tbNombre.MaxLength = 15
         Me.tbNombre.Name = "tbNombre"
-        Me.tbNombre.Size = New System.Drawing.Size(185, 31)
+        Me.tbNombre.Size = New System.Drawing.Size(245, 37)
         Me.tbNombre.TabIndex = 7
         '
         'tbApellido1
         '
         Me.tbApellido1.Enabled = False
         Me.tbApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido1.Location = New System.Drawing.Point(236, 286)
+        Me.tbApellido1.Location = New System.Drawing.Point(315, 352)
+        Me.tbApellido1.Margin = New System.Windows.Forms.Padding(4)
         Me.tbApellido1.MaxLength = 20
         Me.tbApellido1.Name = "tbApellido1"
-        Me.tbApellido1.Size = New System.Drawing.Size(204, 31)
+        Me.tbApellido1.Size = New System.Drawing.Size(271, 37)
         Me.tbApellido1.TabIndex = 8
         '
         'tbApellido2
         '
         Me.tbApellido2.Enabled = False
         Me.tbApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido2.Location = New System.Drawing.Point(646, 285)
+        Me.tbApellido2.Location = New System.Drawing.Point(861, 351)
+        Me.tbApellido2.Margin = New System.Windows.Forms.Padding(4)
         Me.tbApellido2.MaxLength = 20
         Me.tbApellido2.Name = "tbApellido2"
-        Me.tbApellido2.Size = New System.Drawing.Size(204, 31)
+        Me.tbApellido2.Size = New System.Drawing.Size(271, 37)
         Me.tbApellido2.TabIndex = 10
         '
         'lApellido2
         '
         Me.lApellido2.AutoSize = True
         Me.lApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lApellido2.Location = New System.Drawing.Point(488, 286)
+        Me.lApellido2.ForeColor = System.Drawing.SystemColors.Control
+        Me.lApellido2.Location = New System.Drawing.Point(651, 352)
+        Me.lApellido2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lApellido2.Name = "lApellido2"
-        Me.lApellido2.Size = New System.Drawing.Size(153, 29)
+        Me.lApellido2.Size = New System.Drawing.Size(194, 36)
         Me.lApellido2.TabIndex = 9
         Me.lApellido2.Text = "APELLIDO 2:"
         '
@@ -192,19 +209,22 @@ Partial Class FormularioCliente
         '
         Me.tbTelefono.Enabled = False
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(236, 357)
+        Me.tbTelefono.Location = New System.Drawing.Point(315, 439)
+        Me.tbTelefono.Margin = New System.Windows.Forms.Padding(4)
         Me.tbTelefono.MaxLength = 9
         Me.tbTelefono.Name = "tbTelefono"
-        Me.tbTelefono.Size = New System.Drawing.Size(204, 31)
+        Me.tbTelefono.Size = New System.Drawing.Size(271, 37)
         Me.tbTelefono.TabIndex = 11
         '
         'lEmail
         '
         Me.lEmail.AutoSize = True
         Me.lEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lEmail.Location = New System.Drawing.Point(460, 357)
+        Me.lEmail.ForeColor = System.Drawing.SystemColors.Control
+        Me.lEmail.Location = New System.Drawing.Point(613, 439)
+        Me.lEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lEmail.Name = "lEmail"
-        Me.lEmail.Size = New System.Drawing.Size(89, 29)
+        Me.lEmail.Size = New System.Drawing.Size(114, 36)
         Me.lEmail.TabIndex = 12
         Me.lEmail.Text = "EMAIL:"
         '
@@ -212,37 +232,42 @@ Partial Class FormularioCliente
         '
         Me.tbEmail.Enabled = False
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEmail.Location = New System.Drawing.Point(555, 357)
+        Me.tbEmail.Location = New System.Drawing.Point(740, 439)
+        Me.tbEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.tbEmail.MaxLength = 40
         Me.tbEmail.Name = "tbEmail"
-        Me.tbEmail.Size = New System.Drawing.Size(296, 31)
+        Me.tbEmail.Size = New System.Drawing.Size(393, 37)
         Me.tbEmail.TabIndex = 13
         '
         'tbFecha
         '
         Me.tbFecha.Enabled = False
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbFecha.Location = New System.Drawing.Point(288, 425)
+        Me.tbFecha.Location = New System.Drawing.Point(384, 523)
+        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.tbFecha.Name = "tbFecha"
-        Me.tbFecha.Size = New System.Drawing.Size(204, 31)
+        Me.tbFecha.Size = New System.Drawing.Size(271, 37)
         Me.tbFecha.TabIndex = 14
         '
         'lFecha
         '
         Me.lFecha.AutoSize = True
         Me.lFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lFecha.Location = New System.Drawing.Point(79, 425)
+        Me.lFecha.ForeColor = System.Drawing.SystemColors.Control
+        Me.lFecha.Location = New System.Drawing.Point(105, 523)
+        Me.lFecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lFecha.Name = "lFecha"
-        Me.lFecha.Size = New System.Drawing.Size(203, 29)
+        Me.lFecha.Size = New System.Drawing.Size(258, 36)
         Me.lFecha.TabIndex = 15
         Me.lFecha.Text = "FECHA DE ALTA:"
         '
         'bNuevo
         '
         Me.bNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bNuevo.Location = New System.Drawing.Point(81, 116)
+        Me.bNuevo.Location = New System.Drawing.Point(108, 143)
+        Me.bNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.bNuevo.Name = "bNuevo"
-        Me.bNuevo.Size = New System.Drawing.Size(183, 71)
+        Me.bNuevo.Size = New System.Drawing.Size(244, 87)
         Me.bNuevo.TabIndex = 16
         Me.bNuevo.Tag = "1"
         Me.bNuevo.Text = "NUEVO CLIENTE"
@@ -251,9 +276,10 @@ Partial Class FormularioCliente
         'bModificar
         '
         Me.bModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bModificar.Location = New System.Drawing.Point(317, 117)
+        Me.bModificar.Location = New System.Drawing.Point(423, 144)
+        Me.bModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.bModificar.Name = "bModificar"
-        Me.bModificar.Size = New System.Drawing.Size(183, 71)
+        Me.bModificar.Size = New System.Drawing.Size(244, 87)
         Me.bModificar.TabIndex = 17
         Me.bModificar.Tag = "2"
         Me.bModificar.Text = "MODIFICAR CLIENTE"
@@ -262,9 +288,10 @@ Partial Class FormularioCliente
         'bBuscar
         '
         Me.bBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bBuscar.Location = New System.Drawing.Point(553, 116)
+        Me.bBuscar.Location = New System.Drawing.Point(737, 143)
+        Me.bBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.bBuscar.Name = "bBuscar"
-        Me.bBuscar.Size = New System.Drawing.Size(183, 71)
+        Me.bBuscar.Size = New System.Drawing.Size(244, 87)
         Me.bBuscar.TabIndex = 18
         Me.bBuscar.Tag = "3"
         Me.bBuscar.Text = "BUSCAR CLIENTE"
@@ -273,9 +300,10 @@ Partial Class FormularioCliente
         'bBorrar
         '
         Me.bBorrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bBorrar.Location = New System.Drawing.Point(805, 116)
+        Me.bBorrar.Location = New System.Drawing.Point(1073, 143)
+        Me.bBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.bBorrar.Name = "bBorrar"
-        Me.bBorrar.Size = New System.Drawing.Size(183, 71)
+        Me.bBorrar.Size = New System.Drawing.Size(244, 87)
         Me.bBorrar.TabIndex = 19
         Me.bBorrar.Tag = "4"
         Me.bBorrar.Text = "BORRAR CLIENTE"
@@ -284,18 +312,20 @@ Partial Class FormularioCliente
         'bIforme
         '
         Me.bIforme.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bIforme.Location = New System.Drawing.Point(1031, 116)
+        Me.bIforme.Location = New System.Drawing.Point(1375, 143)
+        Me.bIforme.Margin = New System.Windows.Forms.Padding(4)
         Me.bIforme.Name = "bIforme"
-        Me.bIforme.Size = New System.Drawing.Size(183, 71)
+        Me.bIforme.Size = New System.Drawing.Size(244, 87)
         Me.bIforme.TabIndex = 20
         Me.bIforme.Text = "GENERAR INFORME"
         Me.bIforme.UseVisualStyleBackColor = True
         '
         'bCarnet
         '
-        Me.bCarnet.Location = New System.Drawing.Point(1257, 116)
+        Me.bCarnet.Location = New System.Drawing.Point(1676, 143)
+        Me.bCarnet.Margin = New System.Windows.Forms.Padding(4)
         Me.bCarnet.Name = "bCarnet"
-        Me.bCarnet.Size = New System.Drawing.Size(183, 71)
+        Me.bCarnet.Size = New System.Drawing.Size(244, 87)
         Me.bCarnet.TabIndex = 21
         Me.bCarnet.Text = "CREAR CARNET"
         Me.bCarnet.UseVisualStyleBackColor = True
@@ -304,9 +334,10 @@ Partial Class FormularioCliente
         '
         Me.bAceptar.Enabled = False
         Me.bAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bAceptar.Location = New System.Drawing.Point(896, 251)
+        Me.bAceptar.Location = New System.Drawing.Point(1195, 309)
+        Me.bAceptar.Margin = New System.Windows.Forms.Padding(4)
         Me.bAceptar.Name = "bAceptar"
-        Me.bAceptar.Size = New System.Drawing.Size(201, 42)
+        Me.bAceptar.Size = New System.Drawing.Size(268, 52)
         Me.bAceptar.TabIndex = 22
         Me.bAceptar.Text = "ACEPTAR"
         Me.bAceptar.UseVisualStyleBackColor = True
@@ -315,9 +346,10 @@ Partial Class FormularioCliente
         'bCancelar
         '
         Me.bCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bCancelar.Location = New System.Drawing.Point(896, 316)
+        Me.bCancelar.Location = New System.Drawing.Point(1195, 389)
+        Me.bCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.bCancelar.Name = "bCancelar"
-        Me.bCancelar.Size = New System.Drawing.Size(201, 40)
+        Me.bCancelar.Size = New System.Drawing.Size(268, 49)
         Me.bCancelar.TabIndex = 23
         Me.bCancelar.Text = "CANCELAR"
         Me.bCancelar.UseVisualStyleBackColor = True
@@ -325,9 +357,10 @@ Partial Class FormularioCliente
         '
         'bVolver
         '
-        Me.bVolver.Location = New System.Drawing.Point(1311, 729)
+        Me.bVolver.Location = New System.Drawing.Point(1748, 897)
+        Me.bVolver.Margin = New System.Windows.Forms.Padding(4)
         Me.bVolver.Name = "bVolver"
-        Me.bVolver.Size = New System.Drawing.Size(201, 40)
+        Me.bVolver.Size = New System.Drawing.Size(268, 49)
         Me.bVolver.TabIndex = 24
         Me.bVolver.Text = "VOLVER"
         Me.bVolver.UseVisualStyleBackColor = True
@@ -338,10 +371,11 @@ Partial Class FormularioCliente
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdcDataGridViewTextBoxColumn, Me.DniDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.Apellido1DataGridViewTextBoxColumn, Me.Apellido2DataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.FechaDeAltaDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn})
         Me.dgvClientes.DataSource = Me.ClientesBindingSource
-        Me.dgvClientes.Location = New System.Drawing.Point(270, 511)
+        Me.dgvClientes.Location = New System.Drawing.Point(360, 629)
+        Me.dgvClientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.RowHeadersWidth = 51
-        Me.dgvClientes.Size = New System.Drawing.Size(869, 247)
+        Me.dgvClientes.Size = New System.Drawing.Size(1159, 304)
         Me.dgvClientes.TabIndex = 25
         '
         'IdcDataGridViewTextBoxColumn
@@ -426,10 +460,10 @@ Partial Class FormularioCliente
         '
         Me.lTItulo.AutoSize = True
         Me.lTItulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lTItulo.Location = New System.Drawing.Point(530, 22)
-        Me.lTItulo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lTItulo.ForeColor = System.Drawing.SystemColors.Control
+        Me.lTItulo.Location = New System.Drawing.Point(707, 27)
         Me.lTItulo.Name = "lTItulo"
-        Me.lTItulo.Size = New System.Drawing.Size(487, 55)
+        Me.lTItulo.Size = New System.Drawing.Size(610, 69)
         Me.lTItulo.TabIndex = 26
         Me.lTItulo.Text = "GESTIÓN CLIENTES"
         '
@@ -460,20 +494,20 @@ Partial Class FormularioCliente
         'bLimpiar
         '
         Me.bLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bLimpiar.Location = New System.Drawing.Point(680, 425)
-        Me.bLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.bLimpiar.Location = New System.Drawing.Point(907, 523)
+        Me.bLimpiar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bLimpiar.Name = "bLimpiar"
-        Me.bLimpiar.Size = New System.Drawing.Size(170, 56)
+        Me.bLimpiar.Size = New System.Drawing.Size(227, 69)
         Me.bLimpiar.TabIndex = 27
         Me.bLimpiar.Text = "LIMPIAR CAMPOS"
         Me.bLimpiar.UseVisualStyleBackColor = True
         '
         'FormularioCliente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(1443, 781)
+        Me.BackColor = System.Drawing.Color.MidnightBlue
+        Me.ClientSize = New System.Drawing.Size(1924, 961)
         Me.Controls.Add(Me.bLimpiar)
         Me.Controls.Add(Me.lTItulo)
         Me.Controls.Add(Me.dgvClientes)
@@ -502,7 +536,7 @@ Partial Class FormularioCliente
         Me.Controls.Add(Me.lTelefono)
         Me.Controls.Add(Me.lDni)
         Me.Controls.Add(Me.lId)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FormularioCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormularioCliente"

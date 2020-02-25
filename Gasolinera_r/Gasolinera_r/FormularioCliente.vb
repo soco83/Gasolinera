@@ -2,15 +2,20 @@
 Imports Librera_validaciones
 
 Public Class FormularioCliente
+
+
     Dim con As New SqlConnection("server=localhost\SQLExpress01 ; database=repsol_db ; Integrated Security = true")
     Dim valida As New Validaciones
     Dim gestionDB As New Gestion_db(con)
 
+
     'Se crea un adaptador para el dataset.
     Dim adapter As New SqlDataAdapter("select * from clientes", con)
 
+
     'Se crea el dataset para  poder guardar todo lo necesario de la base de datos. 
     Dim dataSet As New DataSet
+
 
     'Variable que almacena el tag del botón del formulario que ha sido pulsado(Crear, Modificar, Buscar y Borrar)
     'para saber a que método se debe llamar cuando se pulse el botón aceptar
@@ -18,13 +23,12 @@ Public Class FormularioCliente
 
 
     Private Sub FormularioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'TODO: esta línea de código carga datos en la tabla 'Repsol_dbDataSet1.clientes' Puede moverla o quitarla según sea necesario.
         'ClientesTableAdapter.Fill(Repsol_dbDataSet.clientes)
 
-
         'se llama al metodo cargarDatos
         cargarDatos()
-
 
     End Sub
 
@@ -46,8 +50,10 @@ Public Class FormularioCliente
 
     End Sub
 
+
     'este es el evento de pulsar el boton de modificar.
     Private Sub bModificar_Click(sender As Object, e As EventArgs) Handles bModificar.Click
+
         botonPulsado = bModificar.Tag
 
         tbDni.Enabled = True
@@ -61,7 +67,10 @@ Public Class FormularioCliente
         bCancelar.Visible = True
 
         sacarDatos()
+
     End Sub
+
+
     'Evento del botón bAceptar. Según que tipo de operación se haya pulsado antes llamará a un método
     'o a otro usando la variable de control botonPulsado
     Private Sub bAceptar_Click(sender As Object, e As EventArgs) Handles bAceptar.Click
@@ -123,8 +132,8 @@ Public Class FormularioCliente
             'En el caso de que se haya pulsado el botón de borrar un cliente
             Case bBorrar.Tag
 
-
         End Select
+
     End Sub
 
 
@@ -148,7 +157,8 @@ Public Class FormularioCliente
 
     End Sub
 
-
+    'EVENTOS DE ERROR PROVIDER
+    '---------------------------------------------------------------------------------------------------------------
 
     'Evento que comrpueba que el dni tiene el formato correcto
 
@@ -239,6 +249,9 @@ Public Class FormularioCliente
 
     End Sub
 
+    'FIN EVENTOS ERRORPROVIEDER
+    '-----------------------------------------------------------------------------------------------------------------
+
 
     'Evento del botón bLimpiar que deja en blanco todos los campos del formulario
     Private Sub bLimpiar_Click(sender As Object, e As EventArgs) Handles bLimpiar.Click
@@ -263,10 +276,19 @@ Public Class FormularioCliente
         bAceptar.Visible = False
         bCancelar.Visible = False
 
+        epDni.SetError(tbDni, String.Empty)
+        epNombre.SetError(tbNombre, String.Empty)
+        epApellido1.SetError(tbApellido1, String.Empty)
+        epApellido2.SetError(tbApellido2, String.Empty)
+        epTelefono.SetError(tbTelefono, String.Empty)
+        epEmail.SetError(tbEmail, String.Empty)
+
     End Sub
+
 
     'Se crea el metodo para pasar los datos seleccionados del datagridview a los campos.
     Public Sub sacarDatos()
+
         tbId.Text = dgvClientes.CurrentRow.Cells.Item(0).Value
         tbDni.Text = dgvClientes.CurrentRow.Cells.Item(1).Value
         tbNombre.Text = dgvClientes.CurrentRow.Cells.Item(2).Value
@@ -275,7 +297,9 @@ Public Class FormularioCliente
         tbTelefono.Text = dgvClientes.CurrentRow.Cells.Item(5).Value
         tbEmail.Text = dgvClientes.CurrentRow.Cells.Item(7).Value
         tbFecha.Text = dgvClientes.CurrentRow.Cells.Item(6).Value
+
     End Sub
+
 
     'Método que limpia todos los TextBox del formulario
     Public Sub limpiarCampos()
@@ -291,8 +315,12 @@ Public Class FormularioCliente
 
     End Sub
 
-    'Metodo para recargar la tabla cada vez que se haga algún tipo de modificiacion en la misma.
+
+    'Método para recargar la tabla cada vez que se haga algún tipo de modificiacion en la misma.
     Public Sub cargarDatos()
+
+        'Se limpia el dataset para no repetir registros a la hora de mostrar los datos
+        dataSet.Clear()
 
         'otra forma a ver si asi no hay problemas.
         'con el adapter se llena el dataset.
@@ -301,7 +329,15 @@ Public Class FormularioCliente
         'despues se añade los datos al datagridview.
         dgvClientes.DataSource = dataSet
         dgvClientes.DataMember = "clientes"
+
     End Sub
 
 
+    Private Sub bBorrar_Click(sender As Object, e As EventArgs) Handles bBorrar.Click
+
+    End Sub
+
+    Private Sub dgvClientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
+
+    End Sub
 End Class

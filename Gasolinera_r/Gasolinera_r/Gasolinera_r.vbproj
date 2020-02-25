@@ -95,6 +95,12 @@
     <Compile Include="FormularioCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormularioEmpleados.Designer.vb">
+      <DependentUpon>FormularioEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gestion_db.vb" />
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
@@ -138,6 +144,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormularioCliente.resx">
       <DependentUpon>FormularioCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioEmpleados.resx">
+      <DependentUpon>FormularioEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>

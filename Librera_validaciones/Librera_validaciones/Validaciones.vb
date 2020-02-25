@@ -6,7 +6,7 @@ Public Class Validaciones
     'valida todo tipo de palabras que no contengan numeros. se utiliza expresiones regulares para ello 
     Public Function validarPalabra(pal As String) As Boolean
         'se utiliza la clase regex y el metodo ismatch que devuelve un boolean
-        Return Regex.IsMatch(pal, "^(´[A-ZÑÁÉÍÓÚa-zñáéíóú]{1}[a-zñáéíóú]+[\s]*)+$")
+        Return Regex.IsMatch(pal, "^([A-ZÑÁÉÍÓÚa-zñáéíóú]{1}[a-zñáéíóú]+[\s]*)+$")
     End Function
 
     'valida números de telefono (fijos y movil), se utiliza expresiones regulares
