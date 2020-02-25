@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormularioEmpleado
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,15 @@ Partial Class FormularioEmpleado
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lTitulo = New System.Windows.Forms.Label()
         Me.lId = New System.Windows.Forms.Label()
         Me.tbId = New System.Windows.Forms.TextBox()
         Me.tbDni = New System.Windows.Forms.TextBox()
         Me.lDni = New System.Windows.Forms.Label()
-        Me.tbNombre = New System.Windows.Forms.TextBox()
-        Me.lNombre = New System.Windows.Forms.Label()
+        Me.tbConfirmContrasenna = New System.Windows.Forms.TextBox()
         Me.tbApellido1 = New System.Windows.Forms.TextBox()
         Me.lApellido1 = New System.Windows.Forms.Label()
         Me.tbApellido2 = New System.Windows.Forms.TextBox()
@@ -63,8 +63,43 @@ Partial Class FormularioEmpleado
         Me.tbProvincia = New System.Windows.Forms.TextBox()
         Me.lProvincia = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.bConfirmar = New System.Windows.Forms.Button()
+        Me.bCancelar = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tbNombre = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbContrasenna = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.epNombre = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epContrasenna = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epConfirmContrasenna = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epApellido1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epApellido2 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epTelefono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epEmail = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epNombreCallle = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epNumero = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epPiso = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epCp = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epLetra = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epCiuidad = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epProvincia = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epNombre, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epContrasenna, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epConfirmContrasenna, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epApellido1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epEmail, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epNombreCallle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epNumero, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epPiso, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epCp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epLetra, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epCiuidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epProvincia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lTitulo
@@ -74,7 +109,7 @@ Partial Class FormularioEmpleado
         Me.lTitulo.ForeColor = System.Drawing.SystemColors.Control
         Me.lTitulo.Location = New System.Drawing.Point(23, 243)
         Me.lTitulo.Name = "lTitulo"
-        Me.lTitulo.Size = New System.Drawing.Size(291, 36)
+        Me.lTitulo.Size = New System.Drawing.Size(242, 29)
         Me.lTitulo.TabIndex = 0
         Me.lTitulo.Text = "Gestión Empleados"
         '
@@ -83,138 +118,127 @@ Partial Class FormularioEmpleado
         Me.lId.AutoSize = True
         Me.lId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lId.ForeColor = System.Drawing.SystemColors.Control
-        Me.lId.Location = New System.Drawing.Point(113, 340)
+        Me.lId.Location = New System.Drawing.Point(108, 302)
         Me.lId.Name = "lId"
-        Me.lId.Size = New System.Drawing.Size(37, 25)
+        Me.lId.Size = New System.Drawing.Size(30, 20)
         Me.lId.TabIndex = 1
         Me.lId.Text = "ID:"
         '
         'tbId
         '
         Me.tbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbId.Location = New System.Drawing.Point(156, 336)
+        Me.tbId.Location = New System.Drawing.Point(156, 302)
         Me.tbId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbId.Name = "tbId"
-        Me.tbId.Size = New System.Drawing.Size(56, 30)
+        Me.tbId.Size = New System.Drawing.Size(56, 26)
         Me.tbId.TabIndex = 2
         '
         'tbDni
         '
         Me.tbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDni.Location = New System.Drawing.Point(156, 405)
+        Me.tbDni.Location = New System.Drawing.Point(156, 345)
         Me.tbDni.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbDni.Name = "tbDni"
-        Me.tbDni.Size = New System.Drawing.Size(168, 30)
-        Me.tbDni.TabIndex = 4
+        Me.tbDni.Size = New System.Drawing.Size(168, 26)
+        Me.tbDni.TabIndex = 1
         '
         'lDni
         '
         Me.lDni.AutoSize = True
         Me.lDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lDni.ForeColor = System.Drawing.SystemColors.Control
-        Me.lDni.Location = New System.Drawing.Point(99, 409)
+        Me.lDni.Location = New System.Drawing.Point(97, 348)
         Me.lDni.Name = "lDni"
-        Me.lDni.Size = New System.Drawing.Size(51, 25)
+        Me.lDni.Size = New System.Drawing.Size(41, 20)
         Me.lDni.TabIndex = 3
         Me.lDni.Text = "DNI:"
         '
-        'tbNombre
+        'tbConfirmContrasenna
         '
-        Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(156, 475)
-        Me.tbNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tbNombre.Name = "tbNombre"
-        Me.tbNombre.Size = New System.Drawing.Size(168, 30)
-        Me.tbNombre.TabIndex = 6
-        '
-        'lNombre
-        '
-        Me.lNombre.AutoSize = True
-        Me.lNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lNombre.ForeColor = System.Drawing.SystemColors.Control
-        Me.lNombre.Location = New System.Drawing.Point(46, 479)
-        Me.lNombre.Name = "lNombre"
-        Me.lNombre.Size = New System.Drawing.Size(104, 25)
-        Me.lNombre.TabIndex = 5
-        Me.lNombre.Text = "NOMBRE:"
+        Me.tbConfirmContrasenna.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbConfirmContrasenna.Location = New System.Drawing.Point(249, 529)
+        Me.tbConfirmContrasenna.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbConfirmContrasenna.Name = "tbConfirmContrasenna"
+        Me.tbConfirmContrasenna.Size = New System.Drawing.Size(168, 26)
+        Me.tbConfirmContrasenna.TabIndex = 4
         '
         'tbApellido1
         '
         Me.tbApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido1.Location = New System.Drawing.Point(156, 543)
+        Me.tbApellido1.Location = New System.Drawing.Point(156, 605)
         Me.tbApellido1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbApellido1.Name = "tbApellido1"
-        Me.tbApellido1.Size = New System.Drawing.Size(168, 30)
-        Me.tbApellido1.TabIndex = 8
+        Me.tbApellido1.Size = New System.Drawing.Size(168, 26)
+        Me.tbApellido1.TabIndex = 5
         '
         'lApellido1
         '
         Me.lApellido1.AutoSize = True
         Me.lApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lApellido1.ForeColor = System.Drawing.SystemColors.Control
-        Me.lApellido1.Location = New System.Drawing.Point(19, 547)
+        Me.lApellido1.Location = New System.Drawing.Point(19, 611)
         Me.lApellido1.Name = "lApellido1"
-        Me.lApellido1.Size = New System.Drawing.Size(131, 25)
+        Me.lApellido1.Size = New System.Drawing.Size(105, 20)
         Me.lApellido1.TabIndex = 7
         Me.lApellido1.Text = "APELLIDO 1:"
         '
         'tbApellido2
         '
         Me.tbApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido2.Location = New System.Drawing.Point(156, 607)
+        Me.tbApellido2.Location = New System.Drawing.Point(156, 654)
         Me.tbApellido2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbApellido2.Name = "tbApellido2"
-        Me.tbApellido2.Size = New System.Drawing.Size(168, 30)
-        Me.tbApellido2.TabIndex = 10
+        Me.tbApellido2.Size = New System.Drawing.Size(168, 26)
+        Me.tbApellido2.TabIndex = 6
         '
         'lApellido2
         '
         Me.lApellido2.AutoSize = True
         Me.lApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lApellido2.ForeColor = System.Drawing.SystemColors.Control
-        Me.lApellido2.Location = New System.Drawing.Point(19, 611)
+        Me.lApellido2.Location = New System.Drawing.Point(19, 654)
         Me.lApellido2.Name = "lApellido2"
-        Me.lApellido2.Size = New System.Drawing.Size(131, 25)
+        Me.lApellido2.Size = New System.Drawing.Size(105, 20)
         Me.lApellido2.TabIndex = 9
         Me.lApellido2.Text = "APELLIDO 2:"
         '
         'tbTelefono
         '
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(156, 674)
+        Me.tbTelefono.Location = New System.Drawing.Point(156, 703)
         Me.tbTelefono.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbTelefono.Name = "tbTelefono"
-        Me.tbTelefono.Size = New System.Drawing.Size(168, 30)
-        Me.tbTelefono.TabIndex = 12
+        Me.tbTelefono.Size = New System.Drawing.Size(168, 26)
+        Me.tbTelefono.TabIndex = 7
         '
         'lTelefono
         '
         Me.lTelefono.AutoSize = True
         Me.lTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lTelefono.ForeColor = System.Drawing.SystemColors.Control
-        Me.lTelefono.Location = New System.Drawing.Point(24, 677)
+        Me.lTelefono.Location = New System.Drawing.Point(25, 703)
         Me.lTelefono.Name = "lTelefono"
-        Me.lTelefono.Size = New System.Drawing.Size(126, 25)
+        Me.lTelefono.Size = New System.Drawing.Size(98, 20)
         Me.lTelefono.TabIndex = 11
         Me.lTelefono.Text = "TELÉFONO:"
         '
         'tbEmail
         '
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEmail.Location = New System.Drawing.Point(156, 737)
+        Me.tbEmail.Location = New System.Drawing.Point(156, 761)
         Me.tbEmail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbEmail.Name = "tbEmail"
-        Me.tbEmail.Size = New System.Drawing.Size(268, 30)
-        Me.tbEmail.TabIndex = 14
+        Me.tbEmail.Size = New System.Drawing.Size(268, 26)
+        Me.tbEmail.TabIndex = 8
         '
         'lEmail
         '
         Me.lEmail.AutoSize = True
         Me.lEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lEmail.ForeColor = System.Drawing.SystemColors.Control
-        Me.lEmail.Location = New System.Drawing.Point(72, 740)
+        Me.lEmail.Location = New System.Drawing.Point(76, 764)
         Me.lEmail.Name = "lEmail"
-        Me.lEmail.Size = New System.Drawing.Size(78, 25)
+        Me.lEmail.Size = New System.Drawing.Size(62, 20)
         Me.lEmail.TabIndex = 13
         Me.lEmail.Text = "EMAIL:"
         '
@@ -225,7 +249,7 @@ Partial Class FormularioEmpleado
         Me.lDireccion.ForeColor = System.Drawing.SystemColors.Control
         Me.lDireccion.Location = New System.Drawing.Point(592, 336)
         Me.lDireccion.Name = "lDireccion"
-        Me.lDireccion.Size = New System.Drawing.Size(131, 25)
+        Me.lDireccion.Size = New System.Drawing.Size(108, 20)
         Me.lDireccion.TabIndex = 17
         Me.lDireccion.Text = "DIRECCION"
         '
@@ -234,9 +258,9 @@ Partial Class FormularioEmpleado
         Me.lRol.AutoSize = True
         Me.lRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lRol.ForeColor = System.Drawing.SystemColors.Control
-        Me.lRol.Location = New System.Drawing.Point(92, 805)
+        Me.lRol.Location = New System.Drawing.Point(92, 826)
         Me.lRol.Name = "lRol"
-        Me.lRol.Size = New System.Drawing.Size(58, 25)
+        Me.lRol.Size = New System.Drawing.Size(46, 20)
         Me.lRol.TabIndex = 15
         Me.lRol.Text = "ROL:"
         '
@@ -245,10 +269,10 @@ Partial Class FormularioEmpleado
         Me.cbRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRol.FormattingEnabled = True
         Me.cbRol.Items.AddRange(New Object() {"Administrador", "Propietario", "Vendedor"})
-        Me.cbRol.Location = New System.Drawing.Point(156, 802)
+        Me.cbRol.Location = New System.Drawing.Point(156, 826)
         Me.cbRol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbRol.Name = "cbRol"
-        Me.cbRol.Size = New System.Drawing.Size(121, 33)
+        Me.cbRol.Size = New System.Drawing.Size(121, 28)
         Me.cbRol.TabIndex = 19
         '
         'bCrear
@@ -320,7 +344,7 @@ Partial Class FormularioEmpleado
         Me.cbTipo.Location = New System.Drawing.Point(626, 389)
         Me.cbTipo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbTipo.Name = "cbTipo"
-        Me.cbTipo.Size = New System.Drawing.Size(121, 33)
+        Me.cbTipo.Size = New System.Drawing.Size(121, 28)
         Me.cbTipo.TabIndex = 27
         '
         'lTipo
@@ -330,7 +354,7 @@ Partial Class FormularioEmpleado
         Me.lTipo.ForeColor = System.Drawing.SystemColors.Control
         Me.lTipo.Location = New System.Drawing.Point(555, 393)
         Me.lTipo.Name = "lTipo"
-        Me.lTipo.Size = New System.Drawing.Size(65, 25)
+        Me.lTipo.Size = New System.Drawing.Size(49, 20)
         Me.lTipo.TabIndex = 26
         Me.lTipo.Text = "TIPO:"
         '
@@ -340,8 +364,8 @@ Partial Class FormularioEmpleado
         Me.tbNombreCalle.Location = New System.Drawing.Point(626, 458)
         Me.tbNombreCalle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbNombreCalle.Name = "tbNombreCalle"
-        Me.tbNombreCalle.Size = New System.Drawing.Size(180, 30)
-        Me.tbNombreCalle.TabIndex = 29
+        Me.tbNombreCalle.Size = New System.Drawing.Size(180, 26)
+        Me.tbNombreCalle.TabIndex = 9
         '
         'lNombreCalle
         '
@@ -350,7 +374,7 @@ Partial Class FormularioEmpleado
         Me.lNombreCalle.ForeColor = System.Drawing.SystemColors.Control
         Me.lNombreCalle.Location = New System.Drawing.Point(516, 462)
         Me.lNombreCalle.Name = "lNombreCalle"
-        Me.lNombreCalle.Size = New System.Drawing.Size(104, 25)
+        Me.lNombreCalle.Size = New System.Drawing.Size(83, 20)
         Me.lNombreCalle.TabIndex = 28
         Me.lNombreCalle.Text = "NOMBRE:"
         '
@@ -360,8 +384,8 @@ Partial Class FormularioEmpleado
         Me.tbCp.Location = New System.Drawing.Point(706, 596)
         Me.tbCp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbCp.Name = "tbCp"
-        Me.tbCp.Size = New System.Drawing.Size(115, 30)
-        Me.tbCp.TabIndex = 33
+        Me.tbCp.Size = New System.Drawing.Size(115, 26)
+        Me.tbCp.TabIndex = 13
         '
         'lCp
         '
@@ -370,7 +394,7 @@ Partial Class FormularioEmpleado
         Me.lCp.ForeColor = System.Drawing.SystemColors.Control
         Me.lCp.Location = New System.Drawing.Point(649, 600)
         Me.lCp.Name = "lCp"
-        Me.lCp.Size = New System.Drawing.Size(51, 25)
+        Me.lCp.Size = New System.Drawing.Size(38, 20)
         Me.lCp.TabIndex = 32
         Me.lCp.Text = "C.P:"
         '
@@ -381,7 +405,7 @@ Partial Class FormularioEmpleado
         Me.lNumero.ForeColor = System.Drawing.SystemColors.Control
         Me.lNumero.Location = New System.Drawing.Point(524, 532)
         Me.lNumero.Name = "lNumero"
-        Me.lNumero.Size = New System.Drawing.Size(39, 25)
+        Me.lNumero.Size = New System.Drawing.Size(30, 20)
         Me.lNumero.TabIndex = 30
         Me.lNumero.Text = "Nº:"
         '
@@ -391,8 +415,8 @@ Partial Class FormularioEmpleado
         Me.tbNumero.Location = New System.Drawing.Point(569, 528)
         Me.tbNumero.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbNumero.Name = "tbNumero"
-        Me.tbNumero.Size = New System.Drawing.Size(59, 30)
-        Me.tbNumero.TabIndex = 31
+        Me.tbNumero.Size = New System.Drawing.Size(59, 26)
+        Me.tbNumero.TabIndex = 10
         '
         'tbPiso
         '
@@ -400,8 +424,8 @@ Partial Class FormularioEmpleado
         Me.tbPiso.Location = New System.Drawing.Point(706, 527)
         Me.tbPiso.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbPiso.Name = "tbPiso"
-        Me.tbPiso.Size = New System.Drawing.Size(59, 30)
-        Me.tbPiso.TabIndex = 35
+        Me.tbPiso.Size = New System.Drawing.Size(59, 26)
+        Me.tbPiso.TabIndex = 11
         '
         'lPiso
         '
@@ -410,7 +434,7 @@ Partial Class FormularioEmpleado
         Me.lPiso.ForeColor = System.Drawing.SystemColors.Control
         Me.lPiso.Location = New System.Drawing.Point(634, 532)
         Me.lPiso.Name = "lPiso"
-        Me.lPiso.Size = New System.Drawing.Size(66, 25)
+        Me.lPiso.Size = New System.Drawing.Size(51, 20)
         Me.lPiso.TabIndex = 34
         Me.lPiso.Text = "PISO:"
         '
@@ -420,8 +444,8 @@ Partial Class FormularioEmpleado
         Me.tbLetra.Location = New System.Drawing.Point(569, 596)
         Me.tbLetra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbLetra.Name = "tbLetra"
-        Me.tbLetra.Size = New System.Drawing.Size(59, 30)
-        Me.tbLetra.TabIndex = 37
+        Me.tbLetra.Size = New System.Drawing.Size(59, 26)
+        Me.tbLetra.TabIndex = 12
         '
         'lLetra
         '
@@ -430,7 +454,7 @@ Partial Class FormularioEmpleado
         Me.lLetra.ForeColor = System.Drawing.SystemColors.Control
         Me.lLetra.Location = New System.Drawing.Point(489, 596)
         Me.lLetra.Name = "lLetra"
-        Me.lLetra.Size = New System.Drawing.Size(82, 25)
+        Me.lLetra.Size = New System.Drawing.Size(65, 20)
         Me.lLetra.TabIndex = 36
         Me.lLetra.Text = "LETRA:"
         '
@@ -440,8 +464,8 @@ Partial Class FormularioEmpleado
         Me.tbCiudad.Location = New System.Drawing.Point(597, 660)
         Me.tbCiudad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbCiudad.Name = "tbCiudad"
-        Me.tbCiudad.Size = New System.Drawing.Size(168, 30)
-        Me.tbCiudad.TabIndex = 39
+        Me.tbCiudad.Size = New System.Drawing.Size(168, 26)
+        Me.tbCiudad.TabIndex = 14
         '
         'lCiudad
         '
@@ -450,7 +474,7 @@ Partial Class FormularioEmpleado
         Me.lCiudad.ForeColor = System.Drawing.SystemColors.Control
         Me.lCiudad.Location = New System.Drawing.Point(497, 661)
         Me.lCiudad.Name = "lCiudad"
-        Me.lCiudad.Size = New System.Drawing.Size(94, 25)
+        Me.lCiudad.Size = New System.Drawing.Size(76, 20)
         Me.lCiudad.TabIndex = 38
         Me.lCiudad.Text = "CIUDAD:"
         '
@@ -460,8 +484,8 @@ Partial Class FormularioEmpleado
         Me.tbProvincia.Location = New System.Drawing.Point(597, 727)
         Me.tbProvincia.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tbProvincia.Name = "tbProvincia"
-        Me.tbProvincia.Size = New System.Drawing.Size(168, 30)
-        Me.tbProvincia.TabIndex = 41
+        Me.tbProvincia.Size = New System.Drawing.Size(168, 26)
+        Me.tbProvincia.TabIndex = 15
         '
         'lProvincia
         '
@@ -470,7 +494,7 @@ Partial Class FormularioEmpleado
         Me.lProvincia.ForeColor = System.Drawing.SystemColors.Control
         Me.lProvincia.Location = New System.Drawing.Point(464, 730)
         Me.lProvincia.Name = "lProvincia"
-        Me.lProvincia.Size = New System.Drawing.Size(127, 25)
+        Me.lProvincia.Size = New System.Drawing.Size(101, 20)
         Me.lProvincia.TabIndex = 40
         Me.lProvincia.Text = "PROVINCIA:"
         '
@@ -485,12 +509,146 @@ Partial Class FormularioEmpleado
         Me.PictureBox1.TabIndex = 42
         Me.PictureBox1.TabStop = False
         '
+        'bConfirmar
+        '
+        Me.bConfirmar.Location = New System.Drawing.Point(470, 885)
+        Me.bConfirmar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.bConfirmar.Name = "bConfirmar"
+        Me.bConfirmar.Size = New System.Drawing.Size(134, 57)
+        Me.bConfirmar.TabIndex = 43
+        Me.bConfirmar.Text = "CONFIRMAR"
+        Me.bConfirmar.UseVisualStyleBackColor = True
+        '
+        'bCancelar
+        '
+        Me.bCancelar.Location = New System.Drawing.Point(672, 885)
+        Me.bCancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.bCancelar.Name = "bCancelar"
+        Me.bCancelar.Size = New System.Drawing.Size(134, 57)
+        Me.bCancelar.TabIndex = 44
+        Me.bCancelar.Text = "CANCELAR"
+        Me.bCancelar.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label2.Location = New System.Drawing.Point(55, 397)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(83, 20)
+        Me.Label2.TabIndex = 46
+        Me.Label2.Text = "NOMBRE:"
+        '
+        'tbNombre
+        '
+        Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbNombre.Location = New System.Drawing.Point(156, 394)
+        Me.tbNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbNombre.Name = "tbNombre"
+        Me.tbNombre.Size = New System.Drawing.Size(168, 26)
+        Me.tbNombre.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(19, 488)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(123, 20)
+        Me.Label1.TabIndex = 48
+        Me.Label1.Text = "CONTRASEÑA:"
+        '
+        'tbContrasenna
+        '
+        Me.tbContrasenna.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbContrasenna.Location = New System.Drawing.Point(156, 482)
+        Me.tbContrasenna.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbContrasenna.Name = "tbContrasenna"
+        Me.tbContrasenna.Size = New System.Drawing.Size(168, 26)
+        Me.tbContrasenna.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label3.Location = New System.Drawing.Point(19, 534)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(224, 20)
+        Me.Label3.TabIndex = 50
+        Me.Label3.Text = "CONFIRMAR CONTRASEÑA:"
+        '
+        'epNombre
+        '
+        Me.epNombre.ContainerControl = Me
+        '
+        'epContrasenna
+        '
+        Me.epContrasenna.ContainerControl = Me
+        '
+        'epConfirmContrasenna
+        '
+        Me.epConfirmContrasenna.ContainerControl = Me
+        '
+        'epApellido1
+        '
+        Me.epApellido1.ContainerControl = Me
+        '
+        'epApellido2
+        '
+        Me.epApellido2.ContainerControl = Me
+        '
+        'epTelefono
+        '
+        Me.epTelefono.ContainerControl = Me
+        '
+        'epEmail
+        '
+        Me.epEmail.ContainerControl = Me
+        '
+        'epNombreCallle
+        '
+        Me.epNombreCallle.ContainerControl = Me
+        '
+        'epNumero
+        '
+        Me.epNumero.ContainerControl = Me
+        '
+        'epPiso
+        '
+        Me.epPiso.ContainerControl = Me
+        '
+        'epCp
+        '
+        Me.epCp.ContainerControl = Me
+        '
+        'epLetra
+        '
+        Me.epLetra.ContainerControl = Me
+        '
+        'epCiuidad
+        '
+        Me.epCiuidad.ContainerControl = Me
+        '
+        'epProvincia
+        '
+        Me.epProvincia.ContainerControl = Me
+        '
         'FormularioEmpleado
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.MidnightBlue
         Me.ClientSize = New System.Drawing.Size(1924, 1055)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.tbContrasenna)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.tbNombre)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.bCancelar)
+        Me.Controls.Add(Me.bConfirmar)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.tbProvincia)
         Me.Controls.Add(Me.lProvincia)
@@ -525,19 +683,32 @@ Partial Class FormularioEmpleado
         Me.Controls.Add(Me.lApellido2)
         Me.Controls.Add(Me.tbApellido1)
         Me.Controls.Add(Me.lApellido1)
-        Me.Controls.Add(Me.tbNombre)
-        Me.Controls.Add(Me.lNombre)
+        Me.Controls.Add(Me.tbConfirmContrasenna)
         Me.Controls.Add(Me.tbDni)
         Me.Controls.Add(Me.lDni)
         Me.Controls.Add(Me.tbId)
         Me.Controls.Add(Me.lId)
         Me.Controls.Add(Me.lTitulo)
-        Me.Font = New System.Drawing.Font("Alef", 8.25!)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormularioEmpleado"
         Me.Text = "FormularioEmpleados"
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epNombre, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epContrasenna, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epConfirmContrasenna, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epApellido1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epEmail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epNombreCallle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epNumero, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epPiso, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epCp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epLetra, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epCiuidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epProvincia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -548,8 +719,7 @@ Partial Class FormularioEmpleado
     Friend WithEvents tbId As TextBox
     Friend WithEvents tbDni As TextBox
     Friend WithEvents lDni As Label
-    Friend WithEvents tbNombre As TextBox
-    Friend WithEvents lNombre As Label
+    Friend WithEvents tbConfirmContrasenna As TextBox
     Friend WithEvents tbApellido1 As TextBox
     Friend WithEvents lApellido1 As Label
     Friend WithEvents tbApellido2 As TextBox
@@ -584,4 +754,25 @@ Partial Class FormularioEmpleado
     Friend WithEvents tbProvincia As TextBox
     Friend WithEvents lProvincia As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents bConfirmar As Button
+    Friend WithEvents bCancelar As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents tbNombre As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents tbContrasenna As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents epNombre As ErrorProvider
+    Friend WithEvents epContrasenna As ErrorProvider
+    Friend WithEvents epConfirmContrasenna As ErrorProvider
+    Friend WithEvents epApellido1 As ErrorProvider
+    Friend WithEvents epApellido2 As ErrorProvider
+    Friend WithEvents epTelefono As ErrorProvider
+    Friend WithEvents epEmail As ErrorProvider
+    Friend WithEvents epNombreCallle As ErrorProvider
+    Friend WithEvents epNumero As ErrorProvider
+    Friend WithEvents epPiso As ErrorProvider
+    Friend WithEvents epCp As ErrorProvider
+    Friend WithEvents epLetra As ErrorProvider
+    Friend WithEvents epCiuidad As ErrorProvider
+    Friend WithEvents epProvincia As ErrorProvider
 End Class
