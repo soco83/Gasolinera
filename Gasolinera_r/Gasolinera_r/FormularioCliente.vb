@@ -54,6 +54,8 @@ Public Class FormularioCliente
     'este es el evento de pulsar el boton de modificar.
     Private Sub bModificar_Click(sender As Object, e As EventArgs) Handles bModificar.Click
 
+        sacarDatos()
+
         botonPulsado = bModificar.Tag
 
         tbDni.Enabled = True
@@ -66,7 +68,13 @@ Public Class FormularioCliente
         bAceptar.Visible = True
         bCancelar.Visible = True
 
-        sacarDatos()
+    End Sub
+
+
+    Private Sub bBorrar_Click(sender As Object, e As EventArgs) Handles bBorrar.Click
+
+
+
 
     End Sub
 
@@ -80,7 +88,7 @@ Public Class FormularioCliente
             'En el caso de que se haya pulsado el botón de crear un nuevo cliente
             Case bNuevo.Tag
 
-                If (epDni.GetError(tbDni).Count = 0 And epNombre.GetError(tbNombre).Count = 0 And epApellido1.GetError(tbApellido1).Count = 0 And epApellido2.GetError(tbApellido2).Count = 0 And epTelefono.GetError(tbTelefono).Count = 0 And epEmail.GetError(tbEmail).Count = 0) Then
+                If epDni.GetError(tbDni).Count = 0 And epNombre.GetError(tbNombre).Count = 0 And epApellido1.GetError(tbApellido1).Count = 0 And epApellido2.GetError(tbApellido2).Count = 0 And epTelefono.GetError(tbTelefono).Count = 0 And epEmail.GetError(tbEmail).Count = 0 And tbDni.Text.Length > 0 And tbNombre.Text.Length > 0 And tbApellido1.Text.Length > 0 Then
                     Dim datos(6) As String
                     datos(0) = tbDni.Text
                     datos(1) = tbNombre.Text
@@ -109,14 +117,14 @@ Public Class FormularioCliente
             'En el caso de que se haya pulsado el botón de modificar un cliente
             Case bModificar.Tag
                 If (epDni.GetError(tbDni).Count = 0 And epNombre.GetError(tbNombre).Count = 0 And epApellido1.GetError(tbApellido1).Count = 0 And epApellido2.GetError(tbApellido2).Count = 0 And epTelefono.GetError(tbTelefono).Count = 0 And epEmail.GetError(tbEmail).Count = 0) Then
-                    Dim datos(5) As String
+                    Dim datos(6) As String
                     datos(0) = tbDni.Text
-                    datos(0) = tbNombre.Text
-                    datos(1) = tbApellido1.Text
-                    datos(2) = tbApellido2.Text
-                    datos(3) = tbTelefono.Text
-                    datos(4) = Now.ToShortDateString
-                    datos(5) = tbEmail.Text
+                    datos(1) = tbNombre.Text
+                    datos(2) = tbApellido1.Text
+                    datos(3) = tbApellido2.Text
+                    datos(4) = tbTelefono.Text
+                    datos(5) = Now.ToShortDateString
+                    datos(6) = tbEmail.Text
 
                     'Se modifica el cliente en la base de datos.
 
@@ -147,7 +155,7 @@ Public Class FormularioCliente
 
     'FALTA POR METER LA VALIDACIÓN DEL DNI
 
-    Private Sub botonEnabled(sender As Object, e As EventArgs) Handles tbDni.Validated, tbNombre.Validated, tbApellido1.Validated
+    Private Sub botonEnabled(sender As Object, e As EventArgs) Handles tbDni.Validating, tbNombre.Validating, tbApellido1.Validating
 
         If (valida.validarPalabra(tbNombre.Text) And valida.validarPalabra(tbApellido1.Text)) Then
             bAceptar.Enabled = True
@@ -333,11 +341,16 @@ Public Class FormularioCliente
     End Sub
 
 
-    Private Sub bBorrar_Click(sender As Object, e As EventArgs) Handles bBorrar.Click
 
-    End Sub
 
     Private Sub dgvClientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
+        sacarDatos()
 
     End Sub
+
+    Private Sub dgvClientes_Click(sender As Object, e As EventArgs) Handles dgvClientes.Click
+
+    End Sub
+
+
 End Class

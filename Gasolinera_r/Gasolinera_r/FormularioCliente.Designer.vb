@@ -375,6 +375,7 @@ Partial Class FormularioCliente
         Me.dgvClientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.RowHeadersWidth = 51
+        Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvClientes.Size = New System.Drawing.Size(1159, 304)
         Me.dgvClientes.TabIndex = 25
         '

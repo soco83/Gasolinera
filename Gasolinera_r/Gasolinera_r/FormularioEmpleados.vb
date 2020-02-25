@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Librera_validaciones
+Imports System.Data.SqlClient
 
 Public Class FormularioEmpleado
 

@@ -399,7 +399,7 @@ Public Class Gestion_db
     'Se crea el metodo para modificar clientes.  se pasa por parametros los datos y el id.
     Public Sub modificarCliente(datos() As String, id As Integer)
         'Se realiza la sentencia para modificar el cliente
-        Dim ordenDb As String = "update clientes set din=@dni, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido, telefono=@telefono, fecha=@fecha, email=@email where id_c=@id"
+        Dim ordenDb As String = "update clientes set dni=@dni, nombre=@nombre, apellido1=@apellido1, apellido2=@apellido2, telefono=@telefono, fecha=@fecha, email=@email where id_c=@id"
 
         'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
@@ -413,7 +413,7 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@apellido2", datos(3))
         comando.Parameters.AddWithValue("@telefono", datos(4))
         comando.Parameters.AddWithValue("@fecha", datos(5))
-        comando.Parameters.AddWithValue("email", datos(6))
+        comando.Parameters.AddWithValue("@email", datos(6))
         'se abre la conexion
         con.Open()
 
