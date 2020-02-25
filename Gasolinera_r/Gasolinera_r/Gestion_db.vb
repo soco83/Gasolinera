@@ -478,13 +478,13 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@id", id)
 
 
-        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
 
-        If res = 6 Then
-            con.Open()
-            comando.ExecuteNonQuery()
-            con.Close()
-        End If
+
+
+        con.Open()
+        comando.ExecuteNonQuery()
+        con.Close()
+
     End Sub
 
     'Se crea el metodo para eliminar un registro de contacto. Se pasa por parametro el id dle registro.
@@ -498,13 +498,13 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@id", id)
 
 
-        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
 
-        If res = 6 Then
-            con.Open()
-            comando.ExecuteNonQuery()
-            con.Close()
-        End If
+
+
+        con.Open()
+        comando.ExecuteNonQuery()
+        con.Close()
+
     End Sub
 
 
@@ -585,5 +585,98 @@ Public Class Gestion_db
             con.Close()
         End If
     End Sub
+
+    '-------------------------------------------------------------------------------------------------------------
+    'Se crean los metodos encargados de las busquedas para cualquier tabla.
+
+    'Se crea el metodo para la busqueda del cliente por id.
+    Public Function buscarIdCliente(id As Integer) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from clientes where id_c=@id", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@id", id)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+    'Se crea el metodo para la busqueda del empleado por id.
+    Public Function buscarIdEmpleados(id As Integer) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from empleados where id_e=@id", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@id", id)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+
+    'Se crea el metodo para la busqueda del proveedor por id.
+    Public Function buscarIdProveedores(id As Integer) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from empleados where id_p=@id", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@id", id)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+
+    'Se crea el metodo para la busqueda del articulo por id.
+    Public Function buscarIdArticulo(id As Integer) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from empleados where id_a=@id", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@id", id)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+
+    'Se crea el metodo para la busqueda por nombre.
+    Public Function buscarNombre(nombre As String, tabla As String) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from " & tabla & " where nombre=@nombre", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@nombre", nombre)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+
+    'Se crea el metodo para la busqueda por dni
+    Public Function buscarDni(dni As String, tabla As String) As DataSet
+        'se crea el dataset para guardar los datos de la busqueda.
+        Dim dataset As New DataSet
+        'Se crea el comando para selecciolnar a través del id.
+        Dim comando As New SqlCommand("select * from " & tabla & " where dni=@dni", con)
+        'Se crea el adaptador para colocar los resultados en el dataset.
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = comando
+        comando.Parameters.AddWithValue("@dni", dni)
+        adapter.Fill(dataset, "id")
+        Return dataset
+
+    End Function
+
 
 End Class
