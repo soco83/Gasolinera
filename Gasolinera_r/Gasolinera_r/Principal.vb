@@ -53,5 +53,10 @@
         Me.Hide()
     End Sub
 
+    Private Sub bUsuario_Click(sender As Object, e As EventArgs) Handles bUsuario.Click
+        Dim formularioEmpleado As New FormularioEmpleado
+        formularioEmpleado.Show()
+        Me.Hide()
 
+    End Sub
 End Class
