@@ -1,9 +1,9 @@
 ﻿Imports System.Data.SqlClient
-
+Imports Librera_validaciones
 Public Class FormularioEmpleado
 
 
-    Dim con As New SqlConnection("server=localhost\SQLExpress01 ; database=repsol_db ; Integrated Security = true")
+    Dim con As New SqlConnection("server=localhost\SQLExpress ; database=repsol_db ; Integrated Security = true")
     Dim valida As New Validaciones
     Dim gestionDB As New Gestion_db(con)
 
