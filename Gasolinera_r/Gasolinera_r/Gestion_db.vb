@@ -391,6 +391,7 @@ Public Class Gestion_db
 
         'se cierra la conexion
         con.Close()
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------
@@ -476,29 +477,22 @@ Public Class Gestion_db
 
         comando.Parameters.AddWithValue("@id", id)
 
-
-
-
-
         con.Open()
         comando.ExecuteNonQuery()
         con.Close()
 
     End Sub
 
+
     'Se crea el metodo para eliminar un registro de contacto. Se pasa por parametro el id dle registro.
     Private Sub eliminarContacto(id As Integer)
+
         'Se realiza la sentencia para eliminar un registro.
         Dim ordenDb As String = "delete from contacto where id_c=@id"
-
 
         Dim comando As New SqlCommand(ordenDb, con)
 
         comando.Parameters.AddWithValue("@id", id)
-
-
-
-
 
         con.Open()
         comando.ExecuteNonQuery()
@@ -511,11 +505,12 @@ Public Class Gestion_db
     'Se crea el metodo para para eliminar empleados. Se pasa por parametro los id.
 
     Public Sub eliminarEmpleado(id As Integer, id_d As Integer)
+
         'Se elimina primero la direccion del empleado.
         eliminarDireccion(id_d)
 
         'se realiza la sentencia para eliminar un registro.
-        Dim ordenDb As String = "delete from empleados where id=@id"
+        Dim ordenDb As String = "delete from empleados where id_e=@id"
 
         'Se crean el comando para borrar el registro de empleados.
 
@@ -523,14 +518,9 @@ Public Class Gestion_db
 
         comando.Parameters.AddWithValue("@id", id)
 
-
-        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
-
-        If res = 6 Then
-            con.Open()
-            comando.ExecuteNonQuery()
-            con.Close()
-        End If
+        con.Open()
+        comando.ExecuteNonQuery()
+        con.Close()
 
     End Sub
 
@@ -538,12 +528,13 @@ Public Class Gestion_db
 
     'Se crea el metodo para borrar clientes. Se pasa por parametro los id.
     Public Sub eliminarProveedores(id As Integer, id_d As Integer, id_c As Integer)
+
         'se elimina primero el contacto y la direccion.
         eliminarDireccion(id_d)
         eliminarContacto(id_c)
 
         'Se realiza la sentencia para eliminar el registro
-        Dim ordenDb As String = "delete from proveedores where id=@id"
+        Dim ordenDb As String = "delete from proveedores where id_p=@id"
 
         'Se crean el comando para borrar el registro de empleados.
 
@@ -551,14 +542,10 @@ Public Class Gestion_db
 
         comando.Parameters.AddWithValue("@id", id)
 
+        con.Open()
+        comando.ExecuteNonQuery()
+        con.Close()
 
-        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
-
-        If res = 6 Then
-            con.Open()
-            comando.ExecuteNonQuery()
-            con.Close()
-        End If
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------
@@ -566,8 +553,9 @@ Public Class Gestion_db
     'Se crea el metodo para borrar clientes. Se pasa por parametro el id
 
     Public Sub eliminarCliente(id As Integer)
+
         'Se realiza la sentencia para eliminar el registro
-        Dim ordenDb As String = "delete from clientes where id=@id"
+        Dim ordenDb As String = "delete from clientes where id_c=@id"
 
         'Se crean el comando para borrar el registro de empleados.
 
@@ -575,14 +563,10 @@ Public Class Gestion_db
 
         comando.Parameters.AddWithValue("@id", id)
 
+        con.Open()
+        comando.ExecuteNonQuery()
+        con.Close()
 
-        Dim res As Integer = MsgBox("El registro se borrará. ¿desea borrarlo?", 36, "Borrar registro")
-
-        If res = 6 Then
-            con.Open()
-            comando.ExecuteNonQuery()
-            con.Close()
-        End If
     End Sub
 
     '-------------------------------------------------------------------------------------------------------------
@@ -590,6 +574,7 @@ Public Class Gestion_db
 
     'Se crea el metodo para la busqueda del cliente por id.
     Public Function buscarIdCliente(id As Integer) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -599,11 +584,15 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@id", id)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
+
+
     'Se crea el metodo para la busqueda del empleado por id.
     Public Function buscarIdEmpleados(id As Integer) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -613,12 +602,15 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@id", id)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
 
+
     'Se crea el metodo para la busqueda del proveedor por id.
     Public Function buscarIdProveedores(id As Integer) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -628,12 +620,15 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@id", id)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
 
+
     'Se crea el metodo para la busqueda del articulo por id.
     Public Function buscarIdArticulo(id As Integer) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -643,12 +638,15 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@id", id)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
 
+
     'Se crea el metodo para la busqueda por nombre.
     Public Function buscarNombre(nombre As String, tabla As String) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -658,12 +656,14 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@nombre", nombre)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
 
     'Se crea el metodo para la busqueda por dni
     Public Function buscarDni(dni As String, tabla As String) As DataSet
+
         'se crea el dataset para guardar los datos de la busqueda.
         Dim dataset As New DataSet
         'Se crea el comando para selecciolnar a través del id.
@@ -673,6 +673,7 @@ Public Class Gestion_db
         adapter.SelectCommand = comando
         comando.Parameters.AddWithValue("@dni", dni)
         adapter.Fill(dataset, "id")
+
         Return dataset
 
     End Function
