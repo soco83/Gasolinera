@@ -77,13 +77,14 @@ Partial Class FormularioEmpleado
         Me.epApellido2 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epTelefono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epEmail = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.epNombreCallle = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epNombreCalle = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epNumero = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epPiso = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epCp = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epLetra = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.epCiuidad = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epCiudad = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.epProvincia = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.epDni = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epNombre, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,13 +94,14 @@ Partial Class FormularioEmpleado
         CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epEmail, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.epNombreCallle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epNombreCalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epNumero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epPiso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epCp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epLetra, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.epCiuidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epCiudad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.epProvincia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.epDni, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lTitulo
@@ -126,6 +128,7 @@ Partial Class FormularioEmpleado
         '
         'tbId
         '
+        Me.tbId.Enabled = False
         Me.tbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbId.Location = New System.Drawing.Point(156, 302)
         Me.tbId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -135,6 +138,7 @@ Partial Class FormularioEmpleado
         '
         'tbDni
         '
+        Me.tbDni.Enabled = False
         Me.tbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDni.Location = New System.Drawing.Point(156, 345)
         Me.tbDni.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -155,6 +159,7 @@ Partial Class FormularioEmpleado
         '
         'tbConfirmContrasenna
         '
+        Me.tbConfirmContrasenna.Enabled = False
         Me.tbConfirmContrasenna.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbConfirmContrasenna.Location = New System.Drawing.Point(249, 529)
         Me.tbConfirmContrasenna.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -164,6 +169,7 @@ Partial Class FormularioEmpleado
         '
         'tbApellido1
         '
+        Me.tbApellido1.Enabled = False
         Me.tbApellido1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbApellido1.Location = New System.Drawing.Point(156, 605)
         Me.tbApellido1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -184,6 +190,7 @@ Partial Class FormularioEmpleado
         '
         'tbApellido2
         '
+        Me.tbApellido2.Enabled = False
         Me.tbApellido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbApellido2.Location = New System.Drawing.Point(156, 654)
         Me.tbApellido2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -204,6 +211,7 @@ Partial Class FormularioEmpleado
         '
         'tbTelefono
         '
+        Me.tbTelefono.Enabled = False
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTelefono.Location = New System.Drawing.Point(156, 703)
         Me.tbTelefono.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -224,6 +232,7 @@ Partial Class FormularioEmpleado
         '
         'tbEmail
         '
+        Me.tbEmail.Enabled = False
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbEmail.Location = New System.Drawing.Point(156, 761)
         Me.tbEmail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -266,6 +275,7 @@ Partial Class FormularioEmpleado
         '
         'cbRol
         '
+        Me.cbRol.Enabled = False
         Me.cbRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRol.FormattingEnabled = True
         Me.cbRol.Items.AddRange(New Object() {"Administrador", "Propietario", "Vendedor"})
@@ -338,6 +348,7 @@ Partial Class FormularioEmpleado
         '
         'cbTipo
         '
+        Me.cbTipo.Enabled = False
         Me.cbTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipo.FormattingEnabled = True
         Me.cbTipo.Items.AddRange(New Object() {"Calle", "Avenida", "Plaza", "Carretera", "Camino"})
@@ -360,9 +371,11 @@ Partial Class FormularioEmpleado
         '
         'tbNombreCalle
         '
+        Me.tbNombreCalle.Enabled = False
         Me.tbNombreCalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNombreCalle.Location = New System.Drawing.Point(626, 458)
         Me.tbNombreCalle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbNombreCalle.MaxLength = 15
         Me.tbNombreCalle.Name = "tbNombreCalle"
         Me.tbNombreCalle.Size = New System.Drawing.Size(180, 26)
         Me.tbNombreCalle.TabIndex = 9
@@ -380,9 +393,11 @@ Partial Class FormularioEmpleado
         '
         'tbCp
         '
+        Me.tbCp.Enabled = False
         Me.tbCp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCp.Location = New System.Drawing.Point(706, 596)
         Me.tbCp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbCp.MaxLength = 5
         Me.tbCp.Name = "tbCp"
         Me.tbCp.Size = New System.Drawing.Size(115, 26)
         Me.tbCp.TabIndex = 13
@@ -411,18 +426,22 @@ Partial Class FormularioEmpleado
         '
         'tbNumero
         '
+        Me.tbNumero.Enabled = False
         Me.tbNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNumero.Location = New System.Drawing.Point(569, 528)
         Me.tbNumero.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbNumero.MaxLength = 2
         Me.tbNumero.Name = "tbNumero"
         Me.tbNumero.Size = New System.Drawing.Size(59, 26)
         Me.tbNumero.TabIndex = 10
         '
         'tbPiso
         '
+        Me.tbPiso.Enabled = False
         Me.tbPiso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbPiso.Location = New System.Drawing.Point(706, 527)
         Me.tbPiso.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbPiso.MaxLength = 2
         Me.tbPiso.Name = "tbPiso"
         Me.tbPiso.Size = New System.Drawing.Size(59, 26)
         Me.tbPiso.TabIndex = 11
@@ -440,9 +459,11 @@ Partial Class FormularioEmpleado
         '
         'tbLetra
         '
+        Me.tbLetra.Enabled = False
         Me.tbLetra.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbLetra.Location = New System.Drawing.Point(569, 596)
         Me.tbLetra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbLetra.MaxLength = 2
         Me.tbLetra.Name = "tbLetra"
         Me.tbLetra.Size = New System.Drawing.Size(59, 26)
         Me.tbLetra.TabIndex = 12
@@ -460,9 +481,11 @@ Partial Class FormularioEmpleado
         '
         'tbCiudad
         '
+        Me.tbCiudad.Enabled = False
         Me.tbCiudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCiudad.Location = New System.Drawing.Point(597, 660)
         Me.tbCiudad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbCiudad.MaxLength = 10
         Me.tbCiudad.Name = "tbCiudad"
         Me.tbCiudad.Size = New System.Drawing.Size(168, 26)
         Me.tbCiudad.TabIndex = 14
@@ -480,9 +503,11 @@ Partial Class FormularioEmpleado
         '
         'tbProvincia
         '
+        Me.tbProvincia.Enabled = False
         Me.tbProvincia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbProvincia.Location = New System.Drawing.Point(597, 727)
         Me.tbProvincia.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.tbProvincia.MaxLength = 13
         Me.tbProvincia.Name = "tbProvincia"
         Me.tbProvincia.Size = New System.Drawing.Size(168, 26)
         Me.tbProvincia.TabIndex = 15
@@ -542,6 +567,7 @@ Partial Class FormularioEmpleado
         '
         'tbNombre
         '
+        Me.tbNombre.Enabled = False
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNombre.Location = New System.Drawing.Point(156, 394)
         Me.tbNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -562,6 +588,7 @@ Partial Class FormularioEmpleado
         '
         'tbContrasenna
         '
+        Me.tbContrasenna.Enabled = False
         Me.tbContrasenna.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbContrasenna.Location = New System.Drawing.Point(156, 482)
         Me.tbContrasenna.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -608,9 +635,9 @@ Partial Class FormularioEmpleado
         '
         Me.epEmail.ContainerControl = Me
         '
-        'epNombreCallle
+        'epNombreCalle
         '
-        Me.epNombreCallle.ContainerControl = Me
+        Me.epNombreCalle.ContainerControl = Me
         '
         'epNumero
         '
@@ -628,13 +655,17 @@ Partial Class FormularioEmpleado
         '
         Me.epLetra.ContainerControl = Me
         '
-        'epCiuidad
+        'epCiudad
         '
-        Me.epCiuidad.ContainerControl = Me
+        Me.epCiudad.ContainerControl = Me
         '
         'epProvincia
         '
         Me.epProvincia.ContainerControl = Me
+        '
+        'epDni
+        '
+        Me.epDni.ContainerControl = Me
         '
         'FormularioEmpleado
         '
@@ -702,13 +733,14 @@ Partial Class FormularioEmpleado
         CType(Me.epApellido2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epTelefono, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epEmail, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.epNombreCallle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epNombreCalle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epNumero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epPiso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epCp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epLetra, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.epCiuidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epCiudad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.epProvincia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.epDni, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -768,11 +800,12 @@ Partial Class FormularioEmpleado
     Friend WithEvents epApellido2 As ErrorProvider
     Friend WithEvents epTelefono As ErrorProvider
     Friend WithEvents epEmail As ErrorProvider
-    Friend WithEvents epNombreCallle As ErrorProvider
+    Friend WithEvents epNombreCalle As ErrorProvider
     Friend WithEvents epNumero As ErrorProvider
     Friend WithEvents epPiso As ErrorProvider
     Friend WithEvents epCp As ErrorProvider
     Friend WithEvents epLetra As ErrorProvider
-    Friend WithEvents epCiuidad As ErrorProvider
+    Friend WithEvents epCiudad As ErrorProvider
     Friend WithEvents epProvincia As ErrorProvider
+    Friend WithEvents epDni As ErrorProvider
 End Class

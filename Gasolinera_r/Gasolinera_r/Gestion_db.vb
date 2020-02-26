@@ -111,12 +111,6 @@ Public Class Gestion_db
         Dim comandoId As New SqlCommand("select count(*) from empleados", con)
 
 
-        'se abre la conexion
-        con.Open()
-
-
-        id = Val(comandoId.ExecuteScalar) + 1
-
         Dim ordenDb As String = "insert into empleados values (@id,@dni,@contraseña,@nombre,@apellido1,@apellido2,@telefono,@email,@direccion,@rol)"
         'se crea el comando a utilizar para guardar el registro
         Dim comando As New SqlCommand(ordenDb, con)
@@ -133,6 +127,11 @@ Public Class Gestion_db
         comando.Parameters.AddWithValue("@direccion", guardarDireccion(direccion))
         comando.Parameters.AddWithValue("@rol", rol)
 
+        'se abre la conexion
+        con.Open()
+
+
+        id = Val(comandoId.ExecuteScalar) + 1
 
         Try
             'se ejecuta la query
