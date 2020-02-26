@@ -4,7 +4,7 @@ Imports Librera_validaciones
 Public Class FormularioCliente
 
 
-    Dim con As New SqlConnection("server=localhost\SQLExpress ; database=repsol_db ; Integrated Security = true")
+    Dim con As New SqlConnection("server=localhost\SQLExpress01 ; database=repsol_db ; Integrated Security = true")
     Dim valida As New Validaciones
     Dim gestionDB As New Gestion_db(con)
 
@@ -33,20 +33,14 @@ Public Class FormularioCliente
     End Sub
 
 
+    'EVENTOS DE LOS BOTONES PRINCIPALES DEL FORMULARIO CREAR, MODIFICAR, BUSCAR, BORRAR...
+    '--------------------------------------------------------------------------------------------------------------
+
     'Evento del botón bNuevo que dispone el formulario para crear clientes
     Private Sub bNuevo_Click(sender As Object, e As EventArgs) Handles bNuevo.Click
 
         botonPulsado = bNuevo.Tag
-
-        tbDni.Enabled = True
-        tbNombre.Enabled = True
-        tbApellido1.Enabled = True
-        tbApellido2.Enabled = True
-        tbTelefono.Enabled = True
-        tbEmail.Enabled = True
-
-        bAceptar.Visible = True
-        bCancelar.Visible = True
+        prepararAceptarCancelar()
 
     End Sub
 
@@ -55,26 +49,17 @@ Public Class FormularioCliente
     Private Sub bModificar_Click(sender As Object, e As EventArgs) Handles bModificar.Click
 
         sacarDatos()
-
         botonPulsado = bModificar.Tag
-
-        tbDni.Enabled = True
-        tbNombre.Enabled = True
-        tbApellido1.Enabled = True
-        tbApellido2.Enabled = True
-        tbTelefono.Enabled = True
-        tbEmail.Enabled = True
-
-        bAceptar.Visible = True
-        bCancelar.Visible = True
+        prepararAceptarCancelar()
 
     End Sub
 
 
     Private Sub bBorrar_Click(sender As Object, e As EventArgs) Handles bBorrar.Click
 
-
-
+        botonPulsado = bBorrar.Tag
+        prepararAceptarCancelar()
+        bAceptar.Enabled = True
 
     End Sub
 
@@ -89,6 +74,7 @@ Public Class FormularioCliente
             Case bNuevo.Tag
 
                 If epDni.GetError(tbDni).Count = 0 And epNombre.GetError(tbNombre).Count = 0 And epApellido1.GetError(tbApellido1).Count = 0 And epApellido2.GetError(tbApellido2).Count = 0 And epTelefono.GetError(tbTelefono).Count = 0 And epEmail.GetError(tbEmail).Count = 0 And tbDni.Text.Length > 0 And tbNombre.Text.Length > 0 And tbApellido1.Text.Length > 0 Then
+
                     Dim datos(6) As String
                     datos(0) = tbDni.Text
                     datos(1) = tbNombre.Text
@@ -127,18 +113,38 @@ Public Class FormularioCliente
                     datos(6) = tbEmail.Text
 
                     'Se modifica el cliente en la base de datos.
-
                     gestionDB.modificarCliente(datos, tbId.Text)
+
                     cargarDatos()
                     limpiarCampos()
                     bAceptar.Visible = False
                     bCancelar.Visible = False
+
                 End If
+
+
             'En el caso de que se haya pulsado el botón de buscar un cliente
             Case bBuscar.Tag
 
+
+
             'En el caso de que se haya pulsado el botón de borrar un cliente
             Case bBorrar.Tag
+
+                Dim respuesta = MsgBox("Está seguro de elminar al cliente seleccionado?", MsgBoxStyle.YesNo, "Confirmación borrado")
+
+                If respuesta = MsgBoxResult.Yes Then
+
+                    Dim id = dgvClientes.CurrentRow.Cells.Item(0).Value
+                    gestionDB.eliminarCliente(id)
+                    MsgBox("Registro eliminado satisfactoriamente", MsgBoxStyle.OkOnly, "Borrado completado")
+
+                End If
+
+                cargarDatos()
+                limpiarCampos()
+                bAceptar.Visible = False
+                bCancelar.Visible = False
 
         End Select
 
@@ -341,16 +347,21 @@ Public Class FormularioCliente
     End Sub
 
 
+    Public Sub prepararAceptarCancelar()
 
+        tbDni.Enabled = True
+        tbNombre.Enabled = True
+        tbApellido1.Enabled = True
+        tbApellido2.Enabled = True
+        tbTelefono.Enabled = True
+        tbEmail.Enabled = True
 
-    Private Sub dgvClientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
-        sacarDatos()
+        bAceptar.Visible = True
+        bCancelar.Visible = True
 
     End Sub
 
-    Private Sub dgvClientes_Click(sender As Object, e As EventArgs) Handles dgvClientes.Click
 
-    End Sub
 
 
 End Class
